@@ -19,3 +19,8 @@ EventOrganizer (un nom sympa est encore à définir) permet de simplifier l'orga
 ### Nice to have
 * Rappel via notifications et mails (mailchimp ?)
 * Règles (Chaque participants doit prendre au minimum x quantité
+
+# Technos
+* Laravel Framework
+* [Materialize CSS](http://materializecss.com) & JQuery
+* MariaDB
