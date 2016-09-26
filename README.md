@@ -9,7 +9,7 @@ EventOrganizer (un nom sympa est encore à définir) permet de simplifier l'orga
 # Cahiers des charges
 
 ### Must have
-* Authentification simple
+* Authentification simple (Email + pwd) ou Simple pseudo + cookie
 * Un utilisateur authentifié peut créer un événement et le partager
 * Le créateur d'un événement peut définir ce qu'il attend comme objets, et la quantité de celui-ci (Choix de l'unité également)
 * Un utilisateur authentifié ayant accès au lien de partage peut indiquer ce qu'il prend et quelle quantité
