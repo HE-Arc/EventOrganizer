@@ -19,7 +19,7 @@ EventOrganizer (un nom sympa est encore à définir) permet de simplifier l'orga
 ### Nice to have
 * Authentification via Facebook, Google...
 * Rappel via notifications et mails (mailchimp ?)
-* Règles (Chaque participants doit prendre au minimum x quantité
+* Règles (Chaque participant doit prendre au minimum x quantité)
 
 # Technos
 * Laravel Framework
