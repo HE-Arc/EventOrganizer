@@ -25,3 +25,7 @@ EventOrganizer (un nom sympa est encore à définir) permet de simplifier l'orga
 * Laravel Framework
 * [Materialize CSS](http://materializecss.com) & JQuery
 * MariaDB
+
+# Maquettes & Sitemap (voir wiki pour plus d'infos à l'avenir)
+* [Site map] (http://diogoferreira.ch/webapp-hearc/sitemap.jpg)
+* [Page event] (http://diogoferreira.ch/webapp-hearc/page_events.html)
