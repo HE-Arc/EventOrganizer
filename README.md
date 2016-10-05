@@ -29,3 +29,6 @@ EventOrganizer (un nom sympa est encore à définir) permet de simplifier l'orga
 # Maquettes & Sitemap (voir wiki pour plus d'infos à l'avenir)
 * [Site map] (http://diogoferreira.ch/webapp-hearc/sitemap.jpg)
 * [Page event] (http://diogoferreira.ch/webapp-hearc/page_events.html)
+
+# Schéma de la base de données
+* [Schéma BDD] (http://diogoferreira.ch/webapp-hearc/bdd.jpg)
