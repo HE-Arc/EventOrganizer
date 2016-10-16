@@ -31,7 +31,7 @@ EventOrganizer (un nom sympa est encore à définir) permet de simplifier l'orga
 * [Page event] (http://diogoferreira.ch/webapp-hearc/page_events.html)
 
 # Schéma de la base de données
-* [Schéma BDD] (http://diogoferreira.ch/webapp-hearc/bdd.jpg)
+* [Schéma BDD] (https://docs.google.com/drawings/d/1Pk__z3BMpsOmMIQyGNknfb5OY2SLXCjzq0SSXC3xVwg/edit?usp=sharing)
 
 # Authentification
 * [Page wiki sur l'auth](https://github.com/HE-Arc/EventOrganizer/wiki/Authentification)
