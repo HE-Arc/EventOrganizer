@@ -16,3 +16,6 @@ Route::get('/', function () {
     
     return view('welcome');
 });
+
+// Event page
+Route::get('event/{id}', 'EventController@show');
