@@ -1,0 +1,21 @@
+.qty-input{
+    width: 40px;
+}
+
+.indicator {
+    background-color: #1e88e5 !important;
+}
+
+.item-image {
+    width: 100px !important;
+    padding: 15px !important;
+    padding-top: 30px !important;
+}
+
+.card-content {
+    width: 100%;
+}
+
+.card-item > .card-content{
+    padding-left: 100px;
+}
