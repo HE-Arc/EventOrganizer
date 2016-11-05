@@ -1,15 +1,15 @@
-<div class="col s12">
+<div class="col s16">
     <div class="card">
+        <div class="card-image">
+            <img
+                    alt="location of {{$event->location}} in google maps"
+                    src="https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=600x300&maptype=roadmap%20&markers=color:red%7Clabel:S%7C{{$event->location}}&key=AIzaSyAd8qghy79K94WYsFVSV6ahJKNrYNGFUiI">
+        </div>
         <div class="card-content">
-            <div class="responsive-container">
-                <iframe
-                        width="600"
-                        height="450"
-                        frameborder="0" style="border:0"
-                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAd8qghy79K94WYsFVSV6ahJKNrYNGFUiI&q={{$event->location}}">
-                </iframe>
-            </div>
-
+            <p>{{$event->location}}</p>
         </div>
     </div>
 </div>
+
+
+

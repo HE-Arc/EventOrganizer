@@ -13,9 +13,9 @@
             <div class="card horizontal">
                 <div class="card-image">
                     @if ($event->image_url != null)
-                        <img src="{{$event->image_url}}">
+                        <img alt="{{$event->name}} profile picture" src="{{$event->image_url}}">
                     @else
-                        <img src="http://www.buzzle.com/img/articleImages/561004-7811-40.jpg">
+                        <img alt="default-event-picture" src="http://localhost/imgs/event_picture_not_found.png">
                     @endif
                 </div>
                 <div class="card-stacked">
