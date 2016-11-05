@@ -35,7 +35,7 @@
             </ul>
         </div>
 
-        <div id="items" class="row s6">
+        <div id="items" class="row col s12">
             @forelse ($event->eventItems()->get() as $item)
                 @include('event.show_item', ['item' => $item])
             @empty

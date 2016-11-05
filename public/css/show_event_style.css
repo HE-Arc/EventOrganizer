@@ -16,6 +16,6 @@
     width: 100%;
 }
 
-.card-item > .card-content{
-    padding-left: 100px;
+.card-item{
+    margin:5px;
 }
