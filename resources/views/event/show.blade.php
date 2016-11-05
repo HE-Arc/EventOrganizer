@@ -49,5 +49,30 @@
         </div>
     </div>
 
+    <script>
+
+        $(function () {
+            $.ajaxSetup({ headers: { 'X-CSRF-Token' : '{{ csrf_token() }}' } })
+
+            $(".item-qty-taken").on('change',() => {
+                let elem = event.target
+                $.post("http://localhost/order", {
+                        "qty_taken" : elem.value,
+                        "event_item_id": elem.getAttribute('item')
+                    }
+                ).done(() => {
+                    Materialize.toast("You're contribution has been saved !", 4000)
+                }).fail((error) => {
+                    console.log(error)
+                    Materialize.toast("Something went wrong, check console", 10000)
+                })
+            })
+
+        })
+
+
+
+    </script>
+
 
 @endsection

@@ -11,18 +11,20 @@
                 </div>
                 </span>
             </div>
-        </div>
-        <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Quantité que je prends<i class="material-icons right">close</i></span>
-            <div class="qty-input">
-                <input type="number" />
-                <span class="unity-container">
-                      Litres
-                    </span>
+
+            <div class="item-orders">
+                <ul>
+                    @forelse($item->orders()->get() as $order)
+                        <li>{{$order->user->name}} : {{$order->qty_taken}}</li>
+                    @empty
+                        Be the first to taken some !
+                    @endforelse
+                </ul>
             </div>
         </div>
-        <div class="card-action">
-            <a href="#" class="activator">Prendre une partie</a>
+        <div class="card-action ">
+            <label for="qty_taken">Je prends</label>
+            <input item="{{$item->id}}" name="qty_taken" value="{{$order->qty_taken}}" class="item-qty-taken" type="number" placeholder="qty.." min="0.0" step="0.1"/>
         </div>
     </div>
 </div>

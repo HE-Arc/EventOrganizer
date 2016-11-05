@@ -22,3 +22,7 @@ Route::get('event/{id}', 'EventController@show');
 
 //Creation page
 Route::get('create','EventController@showCreationPage');
+
+
+//Add order
+Route::post('order','OrderController@userTakes');

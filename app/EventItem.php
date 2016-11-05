@@ -11,4 +11,8 @@ class EventItem extends Model
     public function event(){
         return $this->belongsTo('App\Event');
     }
+
+    public function orders(){
+        return $this->hasMany('App\Order');
+    }
 }
