@@ -19,6 +19,9 @@ Route::get('/', function () {
 
 // Event page
 Route::get('event/{id}', 'EventController@show');
+// List events page
+Route::get('event', 'EventController@showEvents');
+
 
 //Creation page
 Route::get('create','EventController@showCreationPage');
