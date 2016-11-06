@@ -26,3 +26,5 @@ Route::get('create','EventController@showCreationPage');
 
 //Add order
 Route::post('order','OrderController@userTakes');
+
+Route::get('hello', 'EventController@test');
