@@ -11,7 +11,7 @@ use App\Http\Requests;
 class EventController extends Controller
 {
     public function show($id){
-        return view('event.show', ['event' => Event::findOrFail($id)]);
+        return view('event.show', ['event' => Event::with('eventItems.orders')->findOrFail($id)]);
     }
     public function showCreationPage(){
         return view('event.creation',['event'=> new Event()]);
