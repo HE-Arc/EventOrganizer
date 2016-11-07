@@ -17,7 +17,7 @@
                     @forelse($item->orders()->get() as $order)
                         <li>{{$order->user->name}} : {{$order->qty_taken}}</li>
                     @empty
-                        Be the first to taken some !
+                        <li>Be the first to taken some !</li>
                     @endforelse
                 </ul>
             </div>
