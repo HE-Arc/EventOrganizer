@@ -7,13 +7,11 @@
 @section('content')
 
     <div id="main-container">
-    Quelque chose;
 
         <div id="items" class="row col s12">
 
-            C'est cela
-            @forelse ($user->events() as $event)
-                @include('event.show', ['event' => $event])
+            @forelse ($user->events()->get() as $event)
+                {{$event->description}}
             @empty
                 <p>Nothing to do, let's organize some event</p>
             @endforelse

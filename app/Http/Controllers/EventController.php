@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -16,6 +17,6 @@ class EventController extends Controller
         return view('event.creation',['event'=> new Event()]);
     }
     public function showEvents(){
-        return view('event.usereventlist'/*, ['events' => User::events()]*/);
+        return view('event.usereventlist', ['user' => User::first()]);
     }
 }
