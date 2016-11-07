@@ -7,6 +7,8 @@
 
 @section('content')
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <div id="main-container">
 
         <div class="row col s6">
@@ -15,7 +17,7 @@
                     @if ($event->image_url != null)
                         <img alt="{{$event->name}} profile picture" src="{{$event->image_url}}">
                     @else
-                        <img alt="" src="{{url('/')}}/imgs/event_picture_not_found.png">
+                        <img alt="" src="{{asset("/imgs/event_picture_not_found.png")}}">
                     @endif
                 </div>
                 <div class="card-stacked">
@@ -54,7 +56,7 @@
         $(function () {
             $.ajaxSetup({
                 headers: {
-                    'X-CSRF-TOKEN': "{{csrf_token()}}"
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
 
