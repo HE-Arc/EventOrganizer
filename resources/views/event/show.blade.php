@@ -52,7 +52,11 @@
     <script>
 
         $(function () {
-            $.ajaxSetup({ headers: { 'X-CSRF-Token' : '{{ csrf_token() }}' } })
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': "{{csrf_token()}}"
+                }
+            });
 
             $(".item-qty-taken").on('change',() => {
                 let elem = event.target
