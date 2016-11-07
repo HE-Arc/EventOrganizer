@@ -1,7 +1,7 @@
 <div class="col s12 m6">
     <div class="card card-item">
         <div class="card-image" style="float:left">
-            <img alt="item {{$item->name}} thumbnail" src="http://localhost/imgs/colddrink-icon.png" class="item-image">
+            <img alt="item {{$item->name}} thumbnail" src="{{url('/')}}/imgs/colddrink-icon.png" class="item-image">
         </div>
         <div class="card-content activator">
             <span class="card-title activator">{{$item->qty_asked}} : {{$item->name}}</span>
@@ -17,7 +17,7 @@
                     @forelse($item->orders()->get() as $order)
                         <li>{{$order->user->name}} : {{$order->qty_taken}}</li>
                     @empty
-                        Be the first to taken some !
+                        <li>Be the first to taken some !</li>
                     @endforelse
                 </ul>
             </div>

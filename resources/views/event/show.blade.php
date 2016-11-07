@@ -15,7 +15,7 @@
                     @if ($event->image_url != null)
                         <img alt="{{$event->name}} profile picture" src="{{$event->image_url}}">
                     @else
-                        <img alt="default-event-picture" src="http://localhost/imgs/event_picture_not_found.png">
+                        <img alt="" src="{{url('/')}}/imgs/event_picture_not_found.png">
                     @endif
                 </div>
                 <div class="card-stacked">
@@ -52,11 +52,15 @@
     <script>
 
         $(function () {
-            $.ajaxSetup({ headers: { 'X-CSRF-Token' : '{{ csrf_token() }}' } })
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': "{{csrf_token()}}"
+                }
+            });
 
             $(".item-qty-taken").on('change',() => {
                 let elem = event.target
-                $.post("http://localhost/order", {
+                $.post("{{url('/')}}/order", {
                         "qty_taken" : elem.value,
                         "event_item_id": elem.getAttribute('item')
                     }

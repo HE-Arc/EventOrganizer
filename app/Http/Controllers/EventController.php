@@ -15,4 +15,7 @@ class EventController extends Controller
     public function showCreationPage(){
         return view('event.creation',['event'=> new Event()]);
     }
+    public function showEvents(){
+        return view('event.usereventlist'/*, ['events' => User::events()]*/);
+    }
 }
