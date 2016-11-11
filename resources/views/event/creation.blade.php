@@ -12,12 +12,11 @@
 
     <div class="row">
     {!! Form::open(array('url'=>'create','class'=>'col s6')) !!}
-        {!! Form::label('nom','Entrez le nom de votre événement :') !!}
         <div class="row">
             <div class="input-field">
-                {!! Form::text('nom','',['length'=>'20'])!!}
+                {{ Form::text('nom','',['length'=>'20']) }}
+                {{ Form::label('nom','Entrez le nom de votre événement :') }}
             </div>
-
         </div>
 
         {!! Form::label('description','Décrivez brièvement votre événement :') !!}
