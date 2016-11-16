@@ -11,11 +11,12 @@
     <h3>Nouvel événement</h3>
 
     <div class="row">
-    {!! Form::open(array('url'=>'create','class'=>'col s6')) !!}
+    {!! Form::open(array('url'=>'event','class'=>'col s6')) !!}
         <div class="row">
             <div class="input-field">
-                {{ Form::text('nom','',['length'=>'20']) }}
-                {{ Form::label('nom','Entrez le nom de votre événement :') }}
+
+                {!!  Form::label('name','Entrez le nom de votre événement :')!!}
+                {!!  Form::text('name',null,['length'=>'20'])!!}
             </div>
         </div>
 
@@ -37,7 +38,8 @@
         {!! Form::text('location') !!}
                 </div>
             </div>
-        {!! Form::button('Créer',['class'=>'waves-effect waves-light btn']) !!}
+       <!-- {!! Form::button('Créer',['class'=>'waves-effect waves-light btn']) !!}-->
+        {!! Form::submit('Click Me!') !!}
     {!!  Form::close()!!}
     </div>
     <script>

@@ -19,4 +19,17 @@ class EventController extends Controller
     public function showEvents(){
         return view('event.usereventlist', ['user' => User::first()]);
     }
+    public function store(Request $request){
+        //dd($request);
+        //validation
+        $this->validate($request, [
+            'name'=>'required|max:20',
+            'description'=>'required',
+            'date'=>'required',
+            'location'=>'required'
+        ]);
+        $event = Event::create($request->all());
+        $event->save();
+        return redirect("event/$event->id");
+    }
 }

@@ -25,6 +25,7 @@ Route::get('event', 'EventController@showEvents');
 
 //Creation page
 Route::get('create','EventController@showCreationPage');
+Route::post('event','EventController@store');//Route pour après l'envoie du fomulaire
 
 
 //Add order
