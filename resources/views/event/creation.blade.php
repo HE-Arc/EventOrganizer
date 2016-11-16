@@ -17,7 +17,6 @@
             <div class="input-field">
                 {!! Form::text('nom','',['length'=>'20'])!!}
             </div>
-
         </div>
 
         {!! Form::label('description','Décrivez brièvement votre événement :') !!}
