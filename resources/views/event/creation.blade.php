@@ -39,7 +39,7 @@
                 </div>
             </div>
        <!-- {!! Form::button('Créer',['class'=>'waves-effect waves-light btn']) !!}-->
-        {!! Form::submit('Click Me!') !!}
+        {!! Form::submit('Créer') !!}
     {!!  Form::close()!!}
     </div>
     <script>

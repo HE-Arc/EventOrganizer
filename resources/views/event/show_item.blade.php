@@ -24,7 +24,7 @@
         </div>
         <div class="card-action ">
             <label for="qty_taken">Je prends</label>
-            <input item="{{$item->id}}" name="qty_taken" value="{{$order->qty_taken}}" class="item-qty-taken" type="number" placeholder="qty.." min="0.0" step="0.1" max="{{$item->qty_asked}}"/>
+            <input item="{{$item->id}}" name="qty_taken" value="0" class="item-qty-taken" type="number" placeholder="qty.." min="0.0" step="0.1" max="{{$item->qty_asked}}"/>
         </div>
     </div>
 </div>

@@ -22,6 +22,9 @@ Route::get('event/{id}', 'EventController@show');
 // List events page
 Route::get('event', 'EventController@showEvents');
 
+//Pour l'ajout des items
+Route::get('item/{id}','EventItemController@create');
+Route::post('item','EventItemController@store');
 
 //Creation page
 Route::get('create','EventController@showCreationPage');
