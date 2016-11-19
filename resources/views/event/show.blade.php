@@ -7,6 +7,8 @@
 
 @section('content')
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <div id="main-container">
 
         <div class="row col s6">
@@ -15,7 +17,7 @@
                     @if ($event->image_url != null)
                         <img alt="{{$event->name}} profile picture" src="{{$event->image_url}}">
                     @else
-                        <img alt="" src="{{url('/')}}/imgs/event_picture_not_found.png">
+                        <img alt="" src="{{asset("/imgs/event_picture_not_found.png")}}">
                     @endif
                 </div>
                 <div class="card-stacked">
@@ -36,8 +38,8 @@
         </div>
 
         <div id="items" class="row col s12">
-            @forelse ($event->eventItems()->get() as $item)
-                @include('event.show_item', ['item' => $item])
+            @forelse ($event->eventItems as $item)
+                @include('event.show_item', ['item' => $item,'user' => App\User::first()])
             @empty
                 <p>Nothing to bring ! Everything's on the house !</p>
             @endforelse
@@ -54,18 +56,23 @@
         $(function () {
             $.ajaxSetup({
                 headers: {
-                    'X-CSRF-TOKEN': "{{csrf_token()}}"
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
 
             $(".item-qty-taken").on('change',() => {
                 let elem = event.target
+                let id = elem.getAttribute('item')
                 $.post("{{url('/')}}/order", {
                         "qty_taken" : elem.value,
-                        "event_item_id": elem.getAttribute('item')
+                        "event_item_id": id
                     }
                 ).done(() => {
-                    Materialize.toast("You're contribution has been saved !", 4000)
+                    //There is certainly a better way to do this
+                    $('#my-contrib-'+id+" > .item-order-value").html(elem.value)
+                    let perc = parseFloat(elem.value / elem.max * 100)
+                    $("#complete-bar-"+id).css("width",perc+"%");
+                    Materialize.toast("You're contribution has been saved !", 500)
                 }).fail((error) => {
                     console.log(error)
                     Materialize.toast("Something went wrong, check console", 10000)
