@@ -21,6 +21,8 @@ class OrderController extends Controller
 
         $eventItem = EventItem::find($request->get('event_item_id'));
 
+
+        //TODO: do this better
         $order = Order::where("user_id",$user->id)->where("event_item_id",$eventItem->id)->get();
 
 
