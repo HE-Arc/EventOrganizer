@@ -14,8 +14,34 @@
         <title>Event Organizer @yield('title')</title>
     </head>
     <body>
+        {{ Html::style( asset('css/main_style.css') ) }}
+        <nav>
+            <div class="nav-wrapper green accent-4">
+                <a href="#" class="brand-logo">WIN</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/create">Nouveau événement</a></li>
+                    <li><a href="/event">Mes événements</a></li>
+                </ul>
+            </div>
+        </nav>
         <div class="container">
             @yield('content')
         </div>
+
+        <footer class="page-footer green accent-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Footer Content</h5>
+                        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                    </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2014 Debrot Aurélie | Ruedin Cyril | Ferreira Venancio Diogo
+                </div>
+            </div>
+        </footer>
     </body>
+
 </html>
