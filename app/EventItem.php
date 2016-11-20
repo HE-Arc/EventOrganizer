@@ -30,4 +30,14 @@ class EventItem extends Model
     public function completedAt(){
         return $this->qtyFunded() / $this->qty_asked * 100;
     }
+
+    public function qtyTakenByUser($user){
+        $order = $this->orders()->where("user_id",$user->id)->get();
+
+        if($order->isEmpty()){
+            return 0;
+        }else{
+            return $order->first()->qty_taken;
+        }
+    }
 }

@@ -19,10 +19,18 @@ class OrderController extends Controller
         //For now, let's assume that
         $user = User::first();
 
-        $order = Order::firstOrCreate([
-            "user_id" => $user->id,
-            "event_item_id" => EventItem::find($request->get('event_item_id'))->id
-        ]);
+        $eventItem = EventItem::find($request->get('event_item_id'));
+
+        $order = Order::where("user_id",$user->id)->where("event_item_id",$eventItem->id)->get();
+
+
+        if($order->isEmpty()){
+            $order = new Order();
+            $order->user()->associate($user);
+            $order->eventItem()->associate($eventItem);
+        }else{
+            $order = $order->first();
+        }
 
         $order->qty_taken = $request->get('qty_taken');
 

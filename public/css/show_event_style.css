@@ -3,11 +3,11 @@
 }
 
 .indicator {
-    background-color: #1e88e5 !important;
+    background-color: #00c853 !important;
 }
 
 .item-image {
-    width: 100px !important;
+    width: 65px !important;
     padding: 15px !important;
     padding-top: 30px !important;
 }
@@ -17,5 +17,21 @@
 }
 
 .card-item{
-    margin:5px;
+    margin-left:5px !important;
+}
+
+.tabs{
+    background: #e8e8e8 !important;
+}
+
+.tab a{
+    color: #00c853 !important;
+}
+
+.card-action {
+    height: 70px;
+}
+
+.item-qty-taken{
+    width: 25px;
 }

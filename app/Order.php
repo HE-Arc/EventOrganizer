@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $fillable=['event_item','user','qty_asked'];
+    protected $fillable=['eventItem','user','qty_asked'];
 
     public function eventItem(){
         return $this->belongsTo('App\EventItem');
@@ -15,4 +15,5 @@ class Order extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+
 }

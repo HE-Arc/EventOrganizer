@@ -22,8 +22,12 @@
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
-                        <span class="card-title">{{$event->name}}t</span>
+                        <span class="card-title">{{$event->name}}</span>
+                        <div style="float:right;" class="chip white-text green accent-4">
+                            Accomplit à 70% !
+                        </div>
                         <p>{{$event->description}}</p>
+
                     </div>
                 </div>
             </div>
@@ -31,9 +35,9 @@
 
         <div class="row col s6">
             <ul class="tabs">
-                <li class="tab col s4"><a class="active blue-text text-darken-2" href="#items">Items</a></li>
-                <li class="tab col s4"><a class=" blue-text text-darken-1" href="#users">Participants</a></li>
-                <li class="tab col s4"><a class=" blue-text text-darken-1" href="#info">Infos</a></li>
+                <li class="tab col s4"><a class="active green-text accent-4" href="#items">Items</a></li>
+                <li class="tab col s4"><a class=" green-text accent-4" href="#users">Participants</a></li>
+                <li class="tab col s4"><a class=" green-text accent-4" href="#info">Infos</a></li>
             </ul>
         </div>
 
@@ -43,7 +47,6 @@
             @empty
                 <p>Nothing to bring ! Everything's on the house !</p>
             @endforelse
-
         </div>
 
         <div id="info" class="row s6">
@@ -68,14 +71,28 @@
                         "event_item_id": id
                     }
                 ).done(() => {
-                    //There is certainly a better way to do this
                     $('#my-contrib-'+id+" > .item-order-value").html(elem.value)
+
                     let perc = parseFloat(elem.value / elem.max * 100)
+
                     $("#complete-bar-"+id).css("width",perc+"%");
+
                     Materialize.toast("You're contribution has been saved !", 500)
+
+                    $(elem).fadeOut("slow",()=>{
+                        $(elem).parents('.card-action').find('.alter-take-btn').fadeIn("slow")
+                    })
+
                 }).fail((error) => {
                     console.log(error)
                     Materialize.toast("Something went wrong, check console", 10000)
+                })
+            })
+
+
+            $(".take-btn,.alter-take-btn").on('click',(event) => {
+                $(event.target).fadeOut("fast",()=>{
+                    $(event.target).parent().find('.item-qty-taken').fadeIn()
                 })
             })
 
