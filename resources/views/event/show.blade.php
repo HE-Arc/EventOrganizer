@@ -7,8 +7,7 @@
 
 @section('content')
 
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    {!! Form::open(array('url'=>'order')) !!}
     <div id="main-container">
 
         <div class="row col s6">
@@ -53,20 +52,16 @@
             @include('event.show_info', ['event' => $event])
         </div>
     </div>
-
+    {!!  Form::close()!!}
     <script>
 
         $(function () {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
 
             $(".item-qty-taken").on('change',() => {
-                let elem = event.target
-                let id = elem.getAttribute('item')
-                $.post("{{url('/')}}/order", {
+                var elem = event.target
+                var id = elem.getAttribute('item')
+                url = $(elem).closest('form').attr('action')
+                $.post(url, {
                         "qty_taken" : elem.value,
                         "event_item_id": id
                     }

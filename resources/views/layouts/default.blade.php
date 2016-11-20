@@ -11,10 +11,16 @@
 
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Event Organizer @yield('title')</title>
+
+
+        {{ Html::style( asset('css/main_style.css') ) }}
+
+        {{ Html::script( asset('js/app.js') ) }}
+
     </head>
     <body>
-        {{ Html::style( asset('css/main_style.css') ) }}
         <nav>
             <div class="nav-wrapper green accent-4">
                 <a href="#" class="brand-logo">WIN</a>
