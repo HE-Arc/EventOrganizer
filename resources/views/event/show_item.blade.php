@@ -22,7 +22,6 @@
                 </ul>
             </div>
         </div>
-<<<<<<< HEAD
         <div class="card-action">
             <p class="range-field" style="margin: 0px">
                 <input style="display: none" item="{{$item->id}}" name="qty_taken" value="{{$item->qtyTakenByUser($user)}}" class="item-qty-taken" type="range" id="test5" min="0.0" step="0.1" max="{{$item->qty_asked}}" />
@@ -32,11 +31,6 @@
 
             <a {!! $item->qtyTakenByUser($user) > 0 ? "style='display:none'"  : ''!!} class="waves-effect waves-teal btn-flat take-btn blue-text">Prendre une quantité</a>
 
-=======
-        <div class="card-action ">
-            <label for="qty_taken">Je prends</label>
-            <input item="{{$item->id}}" name="qty_taken" value="0" class="item-qty-taken" type="number" placeholder="qty.." min="0.0" step="0.1" max="{{$item->qty_asked}}"/>
->>>>>>> 14d0bb1eff7107806a8c8ce53dfbf000b1441231
         </div>
     </div>
 </div>
