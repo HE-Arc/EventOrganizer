@@ -12,16 +12,32 @@
     <h3>Ajouter un item à la liste</h3>
 
     {!! Form::open(['url'=>'item']) !!}
-    {!! Form::label('name','Item à ajouter :') !!}
-    {!! Form::text('eventitem[0][name]',null,['length'=>'30']) !!}
-    {!! Form::label('qty_asked','Quantité :') !!}
-    {!! Form::number('eventitem[0][qty_asked]','0') !!}
-    {!! Form::label('name','Item à ajouter :') !!}
-    {!! Form::text('eventitem[1][name]',null,['length'=>'30']) !!}
-    {!! Form::label('qty_asked','Quantité :') !!}
-    {!! Form::number('eventitem[1][qty_asked]','0') !!}
+
+    <div id="itemsContainer">
+    </div>
     {!! Form::hidden('event_id',$event->id) !!}
     {!! Form::submit('Ajouter') !!}
     {!! Form::close() !!}
+    <a class="btn-floating btn-large waves-effect waves-light red" id="addItem" style="float: right"><i class="material-icons">add</i></a>
+   <!-- <button id="addItem">add</button>-->
+    @include('eventitems.item_template')
+    <script>
+        $(document).ready(function() {
+            var cpt = 0;
+            //var template = $("#model").html();
+            var context = {count: cpt++};
+            var source = $("#model").html();
+            var template = Handlebars.compile(source);
+            var html = template(context);
+            $("#addItem").click(function(){
+                $("#itemsContainer").append(html).hide().fadeIn();
+                $(".delete-item").on('click',function () {
+                    $(this).closest(".item").remove()
+                })
+            });
 
-   @endsection
+
+
+        });
+    </script>
+@endsection
