@@ -9,12 +9,12 @@
     <div id="main-container">
 
 
-        <div class="row col s6">
+        <div class="row col s6 green-text accent-4">
             <div class="card horizontal">
                 <div class="card-stacked">
                     <div class="card-content">
                         <span class="card-title">{{$user->name}}</span>
-                        <p>My events</p>
+                        <p>{{ trans('pages.my_events') }}</p>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
         <ul class="collapsible popout" data-collapsible="accordion">
             @forelse ($user->events()->get() as $event)
                 <li>
-                    <div class="collapsible-header"><span class="badge">{{ \Carbon\Carbon::parse($event->date)->format('d/m/Y') }}</span><span class="blue-text text-darken-1">{{ $event->name }}</span></div>
+                    <div class="collapsible-header"><span class="badge">{{ \Carbon\Carbon::parse($event->date)->format('d/m/Y') }}</span><span class="green-text accent-4">{{ $event->name }}</span></div>
                     <div class="collapsible-body">
 
                         @if ($event->image_url != null)
@@ -41,7 +41,7 @@
                 </li>
 
             @empty
-                <p>Nothing to do, let's organize some event</p>
+                <p>{{ trans('pages.nothing_to_do') }}</p>
             @endforelse
         </ul>
 

@@ -19,6 +19,7 @@ class OrderController extends Controller
         //For now, let's assume that
         $user = User::first();
 
+
         $eventItem = EventItem::find($request->get('event_item_id'));
 
 
