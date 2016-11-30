@@ -3,6 +3,8 @@ namespace App;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+
+
 class AuthenticatesUser
 {
     use ValidatesRequests;
@@ -24,7 +26,8 @@ class AuthenticatesUser
      */
     public function invite()
     {
-        $this->validateRequest()
+        $this
+            ->validateRequest()
             ->createToken()
             ->send();
     }
@@ -36,7 +39,8 @@ class AuthenticatesUser
      */
     public function login(LoginToken $token)
     {
-        Auth::login($token->user);
+
+        Auth::login($token->user,$token->remember);
         $token->delete();
     }
     /**
@@ -58,7 +62,13 @@ class AuthenticatesUser
      */
     protected function createToken()
     {
-        $user = User::byEmail($this->request->email);
-        return LoginToken::generateFor($user);
+        $user = User::where(["email" => $this->request->email])->first();
+        if(!$user){
+            $user = User::create([
+                "email" => $this->request->email,
+                "password" => bcrypt(uniqid())
+            ]);
+        }
+        return LoginToken::generateFor($user,$this->request->remember === "on");
     }
 }

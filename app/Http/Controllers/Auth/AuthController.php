@@ -1,39 +1,65 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
-
+use App\LoginToken;
+use App\AuthenticatesUser;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
-    use AuthenticatesUsers;
-
     /**
-     * Where to redirect users after login.
-     *
-     * @var string
+     * @var AuthenticatesUser
      */
-    protected $redirectTo = '/home';
-
+    protected $auth;
     /**
      * Create a new controller instance.
      *
-     * @return void
+     * @param AuthenticatesUser $auth
      */
-    public function __construct()
+    public function __construct(AuthenticatesUser $auth)
     {
-        $this->middleware('guest', ['except' => 'logout']);
+        $this->auth = $auth;
+    }
+    /**
+     * Show the login page.
+     *
+     * @return Response
+     */
+    public function login()
+    {
+        return view('auth.login');
+    }
+    /**
+     * Handle the login form submission.
+     *
+     * @return string
+     */
+    public function postLogin()
+    {
+        $this->auth->invite();
+        // Or redirect to a page with this message.
+        return 'Sweet - go check that email, yo.';
+    }
+    /**
+     * Login the user, using the given token.
+     *
+     * @param  LoginToken $token
+     * @return string
+     */
+    public function authenticate(LoginToken $token)
+    {
+        $this->auth->login($token);
+        return redirect('dashboard');
+    }
+    /**
+     * Log out the user.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function logout()
+    {
+        // Or put this on AuthenticatesUser, and
+        // do $this->auth->logout();
+        auth()->logout();
+        return redirect('/');
     }
 }
