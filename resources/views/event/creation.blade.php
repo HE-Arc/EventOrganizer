@@ -38,7 +38,7 @@
         {!! Form::text('location') !!}
                 </div>
             </div>
-       <!-- {!! Form::button('Créer',['class'=>'waves-effect waves-light btn']) !!}-->
+      <!-- {!! Form::button('Créer',['class'=>'waves-effect waves-light btn']) !!}-->
         {!! Form::submit('Créer') !!}
     {!!  Form::close()!!}
     </div>

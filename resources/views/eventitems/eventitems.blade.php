@@ -19,25 +19,22 @@
     {!! Form::submit('Ajouter') !!}
     {!! Form::close() !!}
     <a class="btn-floating btn-large waves-effect waves-light red" id="addItem" style="float: right"><i class="material-icons">add</i></a>
-   <!-- <button id="addItem">add</button>-->
     @include('eventitems.item_template')
     <script>
         $(document).ready(function() {
             var cpt = 0;
-            //var template = $("#model").html();
-            var context = {count: cpt++};
-            var source = $("#model").html();
-            var template = Handlebars.compile(source);
-            var html = template(context);
+
             $("#addItem").click(function(){
+                var context = {count: cpt};
+                cpt++;
+                var source = $("#model").html();
+                var template = Handlebars.compile(source);
+                var html = template(context);
                 $("#itemsContainer").append(html).hide().fadeIn();
                 $(".delete-item").on('click',function () {
                     $(this).closest(".item").remove()
                 })
             });
-
-
-
         });
     </script>
 @endsection
