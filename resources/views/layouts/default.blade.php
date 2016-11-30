@@ -26,8 +26,8 @@
             <div class="nav-wrapper green accent-4">
                 <a href="#" class="brand-logo">WIN</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="/create">Nouveau événement</a></li>
-                    <li><a href="/event">Mes événements</a></li>
+                    <li><a href="/create">{{ trans('pages.new_event') }}</a></li>
+                    <li><a href="/event">{{ trans('pages.my_events') }}</a></li>
                 </ul>
             </div>
         </nav>
@@ -46,7 +46,7 @@
             </div>
             <div class="footer-copyright">
                 <div class="container">
-                    © 2014 Debrot Aurélie | Ruedin Cyril | Ferreira Venancio Diogo
+                    © 2016 Debrot Aurélie | Ruedin Cyril | Ferreira Venancio Diogo
                 </div>
             </div>
         </footer>

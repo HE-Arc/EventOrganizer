@@ -28,7 +28,7 @@ class EventItem extends Model
      * Returns the percentage of completion of this item
      */
     public function completedAt(){
-        return $this->qtyFunded() / $this->qty_asked * 100;
+        return ($this->qtyFunded() / $this->qty_asked) * 100;
     }
 
     public function qtyTakenByUser($user){
