@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', 'Ajout d\'un item')
+@section('title', trans('pages.add_a_item'))
 
 @section('sidebar')
     @parent
@@ -16,7 +16,7 @@
     <div id="itemsContainer">
     </div>
     {!! Form::hidden('event_id',$event->id) !!}
-    {!! Form::submit('Ajouter') !!}
+    {!! Form::submit(trans('pages.Add')) !!}
     {!! Form::close() !!}
     <a class="btn-floating btn-large waves-effect waves-light red" id="addItem" style="float: right"><i class="material-icons">add</i></a>
    <!-- <button id="addItem">add</button>-->

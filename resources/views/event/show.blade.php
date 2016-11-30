@@ -72,7 +72,7 @@
 
                     $("#complete-bar-"+id).css("width",perc+"%");
 
-                    Materialize.toast("You're contribution has been saved !", 500)
+                    Materialize.toast(trans('pages.contribution_saved'), 500)
 
                     $(elem).fadeOut("slow",()=>{
                         $(elem).parents('.card-action').find('.alter-take-btn').fadeIn("slow")
@@ -80,7 +80,7 @@
 
                 }).fail((error) => {
                     console.log(error)
-                    Materialize.toast("Something went wrong, check console", 10000)
+                    Materialize.toast(trans('pages.contribution_error'), 10000)
                 })
             })
 

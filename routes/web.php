@@ -11,27 +11,38 @@
 |
 */
 
-Route::get('/', function () {
 
-    
-    return view('welcome');
-});
+
+Route::group([
+    'prefix' => '{lang}',
+    'where' => ['lang' => '(fr|en)'],
+    'middleware' => ['localization']
+], function(){
+    // List events page
+    Route::get('event', 'EventController@showEvents');
+
+    Route::get('/', function () {
+
+
+        return view('welcome');
+    });
 
 // Event page
-Route::get('event/{id}', 'EventController@show');
-// List events page
-Route::get('event', 'EventController@showEvents');
+    Route::get('event/{id}', 'EventController@show');
+    Route::get('create','EventController@showCreationPage');
+
 
 //Pour l'ajout des items
-Route::get('item/{id}','EventItemController@create');
-Route::post('item','EventItemController@store');
+    Route::get('item/{id}','EventItemController@create');
+    Route::post('item','EventItemController@store');
 
 //Creation page
-Route::get('create','EventController@showCreationPage');
-Route::post('event','EventController@store');//Route pour après l'envoie du fomulaire
+
+    Route::post('event','EventController@store');//Route pour après l'envoie du fomulaire
 
 
 //Add order
-Route::post('order','OrderController@userTakes');
+    Route::post('order','OrderController@userTakes');
 
-Route::get('hello', 'EventController@test');
+    Route::get('hello', 'EventController@test');
+});

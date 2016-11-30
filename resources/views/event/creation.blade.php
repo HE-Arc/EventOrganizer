@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', 'Création d\'un événements')
+@section('title', trans('pages.create_new_event'))
 
 @section('sidebar')
     @parent
@@ -15,30 +15,30 @@
         <div class="row">
             <div class="input-field">
 
-                {!!  Form::label('name','Entrez le nom de votre événement :')!!}
+                {!!  Form::label('name',trans('pages.enter_event_name'))!!}
                 {!!  Form::text('name',null,['length'=>'20'])!!}
             </div>
         </div>
 
-        {!! Form::label('description','Décrivez brièvement votre événement :') !!}
+        {!! Form::label('description',trans('pages.enter_event_description')) !!}
         <div class="row">
             <div class="input-field">
                 {!! Form::textarea('description',null,['class'=>'materialize-textarea']) !!}
             </div>
         </div>
-        {!! Form::label('date','Entrez la date de votre événement :') !!}
+        {!! Form::label('date', trans('pages.enter_event_date')) !!}
         <div class="row">
             <div class="input-field">
         {!! Form::date('date',\Carbon\Carbon::now(),['class'=>'datepicker']) !!}
                 </div>
             </div>
-        {!! Form::label('location','Entrez le lieu de votre événement :') !!}
+        {!! Form::label('location', trans('pages.enter_event_location')) !!}
         <div class="row">
             <div class="input-field">
         {!! Form::text('location') !!}
                 </div>
             </div>
-       <!-- {!! Form::button('Créer',['class'=>'waves-effect waves-light btn']) !!}-->
+       <!-- {!! Form::button(trans('pages.create'),['class'=>'waves-effect waves-light btn']) !!}-->
         {!! Form::submit('Créer') !!}
     {!!  Form::close()!!}
     </div>
