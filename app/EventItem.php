@@ -32,12 +32,14 @@ class EventItem extends Model
     }
 
     public function qtyTakenByUser($user){
-        $order = $this->orders()->where("user_id",$user->id)->get();
+        $participant = Participant::byEventAndUser($this->event, $user)->first();
 
-        if($order->isEmpty()){
-            return 0;
-        }else{
+        $order = Order::byItemAndParticipant($this,$participant)->get();
+
+        if(!$order->isEmpty()){
             return $order->first()->qty_taken;
+        }else{
+            return 0;
         }
     }
 }

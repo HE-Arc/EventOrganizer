@@ -66,7 +66,8 @@ class AuthenticatesUser
         if(!$user){
             $user = User::create([
                 "email" => $this->request->email,
-                "password" => bcrypt(uniqid())
+                "password" => bcrypt(uniqid()),
+                "name" => $this->request->name
             ]);
         }
         return LoginToken::generateFor($user,$this->request->remember === "on");

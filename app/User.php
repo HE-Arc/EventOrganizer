@@ -27,7 +27,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    function events(){
+    function adminOf(){
         return $this->hasMany('App\Event');
     }
 
@@ -40,6 +40,15 @@ class User extends Authenticatable
     public static function byEmail($email)
     {
         return static::where('email', $email)->firstOrFail();
+    }
+
+    public function participants(){
+        return $this->hasMany('App\Participant');
+    }
+
+
+    public function events(){
+        return $this->belongsToMany('App\Event','participants');
     }
 
 }

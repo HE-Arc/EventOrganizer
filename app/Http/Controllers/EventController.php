@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Participant;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,13 @@ use App\Http\Requests;
 class EventController extends Controller
 {
     public function show($id){
-        return view('event.show', ['event' => Event::with('eventItems.orders')->findOrFail($id),'user' => auth()->user()]);
+
+        Participant::firstOrCreate([
+            "user_id" => auth()->user()->id,
+            "event_id" => Event::find($id)->id
+        ]);
+
+        return view('event.show', ['event' => Event::with('eventItems.orders')->find($id),'user' => auth()->user()]);
     }
     public function showCreationPage(){
         return view('event.creation',['event'=> new Event()]);
