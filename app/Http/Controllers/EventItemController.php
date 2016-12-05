@@ -26,7 +26,7 @@ class EventItemController extends Controller
      */
     public function create($id)
     {
-        return view('eventitems.eventitems',['eventitems'=>new EventItem(), 'event'=>Event::findOrFail($id)]);
+
     }
 
     /**
@@ -65,7 +65,9 @@ class EventItemController extends Controller
      */
     public function show($id)
     {
-        //
+        $event = Event::with('eventItems')->findOrFail($id);
+        $eventItem = new EventItem();
+        return view('eventitems.eventitems', compact('event', 'eventItem'));
     }
 
     /**

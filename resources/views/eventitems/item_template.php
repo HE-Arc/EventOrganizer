@@ -1,5 +1,5 @@
 <script id="model" type="text/x-handlebars-template">
-    <div class="card item" >
+    <div class="card item col s12 m6" >
         <div class="card-content ">
             <a class="delete-item" href="#" style="float: right">X</a>
                 <label for="name">Item à ajouter :</label>
