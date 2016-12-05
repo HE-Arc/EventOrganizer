@@ -19,6 +19,7 @@
                     @empty
                         <li>Be the first to taken some !</li>
                     @endforelse
+
                 </ul>
             </div>
         </div>

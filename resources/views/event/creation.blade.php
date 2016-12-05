@@ -8,10 +8,10 @@
 @endsection
 
 @section('content')
-    <h3>Nouvel événement</h3>
+    <h3>{{  trans('pages.new_event') }}</h3>
 
     <div class="row">
-    {!! Form::open(array('url'=>'event','class'=>'col s6')) !!}
+    {!! Form::open(array('url'=>action('EventController@store', App::getLocale()),'class'=>'col s6')) !!}
         <div class="row">
             <div class="input-field">
 
@@ -39,8 +39,8 @@
                 </div>
             </div>
        <!-- {!! Form::button(trans('pages.create'),['class'=>'waves-effect waves-light btn']) !!}-->
-        {!! Form::submit('Créer') !!}
-    {!!  Form::close()!!}
+        {!! Form::submit(trans('pages.create')) !!}
+    {!!  Form::close() !!}
     </div>
     <script>
         $('.datepicker').pickadate({

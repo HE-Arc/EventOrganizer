@@ -42,7 +42,7 @@
 
         <div id="items" class="row col s12">
             @forelse ($event->eventItems as $item)
-                @include('event.show_item', ['item' => $item,'user' => App\User::first()])
+                @include('event.show_item', ['item' => $item,'user' => $user])
             @empty
                 <p>Nothing to bring ! Everything's on the house !</p>
             @endforelse

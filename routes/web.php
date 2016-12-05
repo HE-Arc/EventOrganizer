@@ -11,8 +11,6 @@
 |
 */
 
-
-
 Route::group([
     'prefix' => '{lang}',
     'where' => ['lang' => '(fr|en)'],
@@ -45,4 +43,19 @@ Route::group([
     Route::post('order','OrderController@userTakes');
 
     Route::get('hello', 'EventController@test');
+
+
 });
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+
+Route::get('login', 'Auth\AuthController@login');
+Route::post('login', 'Auth\AuthController@postLogin');
+Route::get('auth/token/{token}', 'Auth\AuthController@authenticate');
+Route::get('logout', 'Auth\AuthController@logout');
+
+
