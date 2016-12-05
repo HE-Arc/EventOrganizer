@@ -35,7 +35,7 @@
         <div class="row col s6">
             <ul class="tabs">
                 <li class="tab col s4"><a class="active green-text accent-4" href="#items">Items</a></li>
-                <li class="tab col s4"><a class=" green-text accent-4" href="#users">Participants</a></li>
+                <li class="tab col s4"><a class=" green-text accent-4" href="#participants">Participants</a></li>
                 <li class="tab col s4"><a class=" green-text accent-4" href="#info">Infos</a></li>
             </ul>
         </div>
@@ -48,6 +48,10 @@
             @endforelse
         </div>
 
+        <div id="participants">
+            @include('event.show_participants',['participants' => $event->participants])
+        </div>
+
         <div id="info" class="row s6">
             @include('event.show_info', ['event' => $event])
         </div>
@@ -57,7 +61,7 @@
 
         $(function () {
 
-            $(".item-qty-taken").on('change',() => {
+            $(".item-qty-taken").on('change',(event) => {
                 var elem = event.target
                 var id = elem.getAttribute('item')
                 url = $(elem).closest('form').attr('action')
