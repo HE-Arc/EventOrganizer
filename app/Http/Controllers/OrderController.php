@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Participant;
 use Illuminate\Http\Request;
 use App\User;
 use App\Order;
@@ -16,26 +17,13 @@ class OrderController extends Controller
         ]);
 
 
-        //For now, let's assume that
-        $user = User::first();
+        $order = Order::firstOrCreate([
+            "participant_id" => Participant::byUser(auth()->user())->first()->id,
+            "event_item_id" => $request->event_item_id
+        ]);
 
 
-        $eventItem = EventItem::find($request->get('event_item_id'));
-
-
-        //TODO: do this better
-        $order = Order::where("user_id",$user->id)->where("event_item_id",$eventItem->id)->get();
-
-
-        if($order->isEmpty()){
-            $order = new Order();
-            $order->user()->associate($user);
-            $order->eventItem()->associate($eventItem);
-        }else{
-            $order = $order->first();
-        }
-
-        $order->qty_taken = $request->get('qty_taken');
+        $order->qty_taken = $request->qty_taken;
 
         $order->save();
 

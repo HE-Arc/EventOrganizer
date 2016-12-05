@@ -35,19 +35,24 @@
         <div class="row col s6">
             <ul class="tabs">
                 <li class="tab col s4"><a class="active green-text accent-4" href="#items">Items</a></li>
-                <li class="tab col s4"><a class=" green-text accent-4" href="#users">Participants</a></li>
+                <li class="tab col s4"><a class=" green-text accent-4" href="#participants">Participants</a></li>
                 <li class="tab col s4"><a class=" green-text accent-4" href="#info">Infos</a></li>
             </ul>
         </div>
 
         <div id="items" class="row col s12">
             @forelse ($event->eventItems as $item)
-                @include('event.show_item', ['item' => $item,'user' => App\User::first()])
+                @include('event.show_item', ['item' => $item,'user' => $user])
             @empty
                 <p>Nothing to bring ! Everything's on the house !</p>
             @endforelse
         </div>
         <a class="btn-floating btn-large waves-effect waves-light red" href="{{url("/item/$event->id")}}" id="modifiyItem"><i class="material-icons">add</i></a>
+
+        <div id="participants">
+            @include('event.show_participants',['participants' => $event->participants])
+        </div>
+
         <div id="info" class="row s6">
             @include('event.show_info', ['event' => $event])
         </div>
@@ -57,7 +62,7 @@
 
         $(function () {
 
-            $(".item-qty-taken").on('change',() => {
+            $(".item-qty-taken").on('change',(event) => {
                 var elem = event.target
                 var id = elem.getAttribute('item')
                 url = $(elem).closest('form').attr('action')

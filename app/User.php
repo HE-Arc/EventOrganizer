@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email','password'
     ];
 
     /**
@@ -27,9 +27,28 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    function events(){
+    function adminOf(){
         return $this->hasMany('App\Event');
     }
 
+    /**
+     * Retrieve a user by their email address.
+     *
+     * @param  string $email
+     * @return $this
+     */
+    public static function byEmail($email)
+    {
+        return static::where('email', $email)->firstOrFail();
+    }
+
+    public function participants(){
+        return $this->hasMany('App\Participant');
+    }
+
+
+    public function events(){
+        return $this->belongsToMany('App\Event','participants');
+    }
 
 }
