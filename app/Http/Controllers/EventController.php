@@ -38,6 +38,7 @@ class EventController extends Controller
             'location'=>'required'
         ]);
         $event = Event::create($request->all());
+        $event->user()->associate(auth()->user());
         $event->save();
         return redirect("event/$event->id");
     }

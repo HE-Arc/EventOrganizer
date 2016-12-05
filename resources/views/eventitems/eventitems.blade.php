@@ -1,7 +1,7 @@
 {{ Html::style( asset('css/event_item_style.css') ) }}
 @extends('layouts.default')
 
-@section('title', 'Ajout d\'un item')
+@section('title', trans('pages.add_a_item'))
 
 @section('sidebar')
     @parent
@@ -19,8 +19,10 @@
             @include("eventitems.item_template", $item)
         @endforeach
     </div>
-    {!! Form::hidden('event_id', $event->id) !!}
-    {!! Form::submit('Ajouter') !!}
+
+    {!! Form::hidden('event_id',$event->id) !!}
+    {!! Form::submit(trans('pages.Add')) !!}
+
     {!! Form::close() !!}
     <div id="addButton">
         <a class="btn-floating btn-large waves-effect waves-light red" id="addItem" ><i class="material-icons">add</i></a>
