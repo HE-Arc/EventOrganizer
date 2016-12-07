@@ -33,6 +33,9 @@ class Participant extends Model
         return $this->hasMany('App\Order');
     }
 
+    public function scopeByUser($query,$user){
+        return $query->where('user_id',$user->id);
+    }
 
     public function scopeByEventAndUser($query,$event,$user){
         return $query->where('event_id',$event->id)

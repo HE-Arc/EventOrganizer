@@ -12,7 +12,7 @@
 
     <h3>Ajouter un item à la liste</h3>
 
-    {!! Form::open(['url'=>'item']) !!}
+    {!! Form::open(array('url'=>route("store_item", ['lang' => App::getLocale()]))) !!}
 
     <div id="itemsContainer" class="row col s12">
         @foreach($event->eventItems as $item)
@@ -21,7 +21,7 @@
     </div>
 
     {!! Form::hidden('event_id',$event->id) !!}
-    {!! Form::submit(trans('pages.Add')) !!}
+    {!! Form::submit(trans('pages.add')) !!}
 
     {!! Form::close() !!}
     <div id="addButton">
