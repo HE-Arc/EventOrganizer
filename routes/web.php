@@ -32,8 +32,6 @@ Route::group([
 
 //Pour l'ajout des items
 
-
-
 Route::get('item/{id}',['middleware' => 'auth', 'uses' => 'EventItemController@show']);
 
 Route::post('item','EventItemController@store');

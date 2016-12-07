@@ -15,7 +15,7 @@ class DropFConstratains extends Migration
     {
         Schema::table('participants', function (Blueprint $table) {
             $table->dropForeign('participants_event_id_foreign');
-            $table->dropForeign('participants_user_id_foreign');
+            //$table->dropForeign('participants_user_id_foreign');
         });
     }
 

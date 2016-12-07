@@ -15,10 +15,10 @@ class AlterOrders extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             $table->bigIncrements('id')->change();
-            $table->dropForeign('orders_user_id_foreign');
-            $table->dropColumn('user_id');
+            //$table->dropForeign('orders_user_id_foreign');
+            //$table->dropColumn('user_id');
             $table->integer('participant_id')->unsigned();
-            $table->foreign('participant_id')->references('id')->on('participants');
+            //$table->foreign('participant_id')->references('id')->on('participants');
         });
     }
 
