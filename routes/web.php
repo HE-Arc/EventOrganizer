@@ -14,7 +14,7 @@
 Route::group([
     'prefix' => '{lang}',
     'where' => ['lang' => '(fr|en)'],
-    'middleware' => ['localization']
+    'middleware' => ['localization','auth']
 ], function(){
     // List events page
     Route::get('event', ['uses' => 'EventController@showEvents', 'as' => 'list_events']);

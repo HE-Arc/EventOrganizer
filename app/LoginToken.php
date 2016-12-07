@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\Mail\LoginMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Database\Eloquent\Model;
 
@@ -41,14 +42,7 @@ class LoginToken extends Model
      */
     public function send()
     {
-        $url = url('/auth/token', $this->token);
-        Mail::raw(
-            "<a href='{$url}'>{$url}</a>",
-            function ($message) {
-                $message->to($this->user->email)
-                    ->subject('Login to Laracasts');
-            }
-        );
+        Mail::to($this->user)->send(new LoginMail($this));
     }
     /**
      * A token belongs to a registered user.
