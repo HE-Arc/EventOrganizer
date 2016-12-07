@@ -37,7 +37,7 @@ return[
     'forge' => 'Forge',
     'github' => 'GitHub',
 
-    'names' => '© 2016 INCREDIBLE ofBrot O\'Reilly | Streetdin Cyril | Ferreira Mitchell Diogo'
+    'names' => '© 2016 Debrot Aurélie | Ruedin Cyril | Ferreira Venancio Diogo '
 
 
 ];
