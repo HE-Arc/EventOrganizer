@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\App;
 
 class EventController extends Controller
 {
@@ -47,6 +48,6 @@ class EventController extends Controller
         ]);
 
         $event->save();
-        return redirect("en/event/$event->id");
+        return redirect(route("show_event", ['id' => $event->id, 'lang' => App::getLocale()]));
     }
 }
