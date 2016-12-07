@@ -1,0 +1,13 @@
+.item{
+    margin-right: 15px !important;
+    max-width: 300px;
+    padding: 0px;
+}
+#itemsContainer{
+    padding: 0px;
+}
+#addButton {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+}
