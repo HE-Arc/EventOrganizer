@@ -22,7 +22,9 @@ class AddOrder extends Migration
             $table->foreign('event_item_id')->references('id')->on('event_items');
 
 
+            //DIOGO IL MANQUE PAS UNE LIGNE ICI ???
 
+            $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
 
             //qty taken by user

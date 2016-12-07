@@ -18,7 +18,7 @@ class AlterOrders extends Migration
             $table->dropForeign('orders_user_id_foreign');
             $table->dropColumn('user_id');
             $table->integer('participant_id')->unsigned();
-            $table->foreign('participant_id')->references('id')->on('participants');
+            //$table->foreign('participant_id')->references('id')->on('participants');
         });
     }
 

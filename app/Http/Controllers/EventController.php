@@ -31,6 +31,7 @@ class EventController extends Controller
     public function store(Request $request){
         //dd($request);
         //validation
+
         $this->validate($request, [
             'name'=>'required|max:20',
             'description'=>'required',
@@ -38,7 +39,13 @@ class EventController extends Controller
             'location'=>'required'
         ]);
         $event = Event::create($request->all());
-        $event->user()->associate(auth()->user());
+        $event->admin()->associate(auth()->user());
+        
+        Participant::Create([
+            "user_id" => auth()->user()->id,
+            "event_id" => $event->id
+        ]);
+
         $event->save();
         return redirect("event/$event->id");
     }
