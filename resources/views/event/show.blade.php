@@ -7,7 +7,7 @@
 
 @section('content')
 
-    {!! Form::open(array('url'=>'order')) !!}
+    {!! Form::open(array('url'=>route('store_orders', ['lang' => App::getLocale()]))) !!}
     <div id="main-container">
 
         <div class="row col s6">
