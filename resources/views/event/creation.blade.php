@@ -11,7 +11,7 @@
     <h3>{{  trans('pages.new_event') }}</h3>
 
     <div class="row">
-    {!! Form::open(array('url'=>action('EventController@store', App::getLocale()),'class'=>'col s6')) !!}
+    {!! Form::open(array('url'=>route("store_event", ['id' => $event->id, 'lang' => App::getLocale()]),'class'=>'col s6')) !!}
         <div class="row">
             <div class="input-field">
 

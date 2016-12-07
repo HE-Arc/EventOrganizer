@@ -17,36 +17,30 @@ Route::group([
     'middleware' => ['localization','auth']
 ], function(){
     // List events page
-    Route::get('event', 'EventController@showEvents');
+    Route::get('event', ['uses' => 'EventController@showEvents', 'as' => 'list_events']);
 
-    Route::get('/', function () {
-
-
-        return view('welcome');
-    });
 
 // Event page
-    Route::get('event/{id}', 'EventController@show');
-    Route::get('create','EventController@showCreationPage');
+
+    Route::get('create',['uses' => 'EventController@showCreationPage', 'as' => 'create_event']);
 
 
 //Pour l'ajout des items
 
-Route::get('item/{id}',['middleware' => 'auth', 'uses' => 'EventItemController@show']);
+Route::get('item/{id}',['middleware' => 'auth', 'uses' => 'EventItemController@show', 'as' => 'list_event_items']);
 
-Route::post('item','EventItemController@store');
+Route::post('item',['uses' =>'EventItemController@store', 'as' => 'store_item']);
 
 
 //Creation page
 
-    Route::post('event','EventController@store');//Route pour après l'envoie du fomulaire
+    Route::post('event',['uses' => 'EventController@store', 'as' => 'store_event']);//Route pour après l'envoie du fomulaire
 
 
 //Add order
-    Route::post('order','OrderController@userTakes');
+    Route::post('order',['uses' =>'OrderController@userTakes', 'as' => 'store_orders']);
 
-    Route::get('hello', 'EventController@test');
-
+    Route::get('event/{id}', ['uses' => 'EventController@show', 'as' => 'show_event']);
 
 });
 
@@ -55,7 +49,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('event/{id}', 'EventController@show');
 Route::get('login', 'Auth\AuthController@login');
 Route::post('login', 'Auth\AuthController@postLogin');
 Route::get('auth/token/{token}', 'Auth\AuthController@authenticate');

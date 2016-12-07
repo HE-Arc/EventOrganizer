@@ -2,7 +2,7 @@
     <div class="card item col s12 m6" >
         <div class="card-content ">
             <!--Modal trigger-->
-            <a class="waves-effect waves-light btn" href="#modal1">Modal</a>
+            <button data-target="modal1" class="btn">Modal</button>
             <a class="delete-item" href="#" style="float: right">X</a>
                 <label for="name">Item à ajouter :</label>
                 <input length="30" name="eventitem[{{count}}][name]" type="text">

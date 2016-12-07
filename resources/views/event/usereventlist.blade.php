@@ -33,7 +33,7 @@
                             <img alt="" src="{{asset("/imgs/event_picture_not_found.png")}}">
                         @endif
 
-                        <a href="event/{{ $event->id }}" class="collection-item">Go to event</a>
+                        <a href="event/{{ route("show_event", ['id' => $event->id, 'lang' => App::getLocale()]) }}" class="collection-item">Go to event</a>
                         <p><i class="material-icons">place</i> {{$event->location}}</p>
 
                         <p>{{$event->description}}</p>
