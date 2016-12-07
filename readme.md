@@ -1,27 +1,37 @@
-# Laravel PHP Framework
+#EventOrganizer
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+### Problème
+Lors de beaucoup de soirées / sorties / balades entre amis, des groupes whatsapp / facebook sont créés, ceux-ci peuvent devenir très désordonnés suivant le nombre de personnes y participant, et au final il est très difficile de s'organiser et tout le monde finit par amener (boissons, nourriture, etc..) comme bon lui semble.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+### Solution
+EventOrganizer (un nom sympa est encore à définir) permet de simplifier l'organisation en proposant de spécifier ce que l'organisateur a besoin (10 L de bières, 5 L de coca, 3 paquets de chips etc...) et d'envoyer le lien de l'application aux participants, qui eux spécifieront les aliments qu'ils prendront à l'événement.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+# Cahiers des charges
 
-## Official Documentation
+### Must have
+* Authentification simple (Email + pwd) ou Simple pseudo + cookie
+* Un utilisateur authentifié peut créer un événement et le partager
+* Le créateur d'un événement peut définir ce qu'il attend comme objets, et la quantité de celui-ci (Choix de l'unité également)
+* Un utilisateur authentifié ayant accès au lien de partage peut indiquer ce qu'il prend et quelle quantité
+* Un utilisateur authentifié ayant accès au lien de partage peut également consulter qui prend quoi
+* Responsive design
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+### Nice to have
+* Authentification via Facebook, Google...
+* Rappel via notifications et mails (mailchimp ?)
+* Règles (Chaque participant doit prendre au minimum x quantité)
 
-## Contributing
+# Technos
+* Laravel Framework
+* [Materialize CSS](http://materializecss.com) & JQuery
+* MariaDB
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+# Maquettes & Sitemap (voir wiki pour plus d'infos à l'avenir)
+* [Site map] (http://diogoferreira.ch/webapp-hearc/sitemap.jpg)
+* [Page event] (http://diogoferreira.ch/webapp-hearc/page_events.html)
 
-## Security Vulnerabilities
+# Schéma de la base de données
+* [Schéma BDD] (https://docs.google.com/drawings/d/1Pk__z3BMpsOmMIQyGNknfb5OY2SLXCjzq0SSXC3xVwg/edit?usp=sharing)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+# Authentification
+* [Page wiki sur l'auth](https://github.com/HE-Arc/EventOrganizer/wiki/Authentification)

@@ -11,14 +11,14 @@ use App\Http\Requests;
 
 class EventController extends Controller
 {
-    public function show($id){
+    public function show(Request $request){
 
         Participant::firstOrCreate([
             "user_id" => auth()->user()->id,
-            "event_id" => Event::find($id)->id
+            "event_id" => $request->id
         ]);
 
-        return view('event.show', ['event' => Event::with('eventItems.orders')->find($id),'user' => auth()->user()]);
+        return view('event.show', ['event' => Event::with('eventItems.orders')->find($request->id),'user' => auth()->user()]);
     }
     public function showCreationPage(){
         return view('event.creation',['event'=> new Event()]);
@@ -47,6 +47,6 @@ class EventController extends Controller
         ]);
 
         $event->save();
-        return redirect("event/$event->id");
+        return redirect("en/event/$event->id");
     }
 }
