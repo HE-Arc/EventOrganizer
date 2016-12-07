@@ -13,7 +13,7 @@ class RenameUserIdToAdminId extends Migration
      */
     public function up()
     {
-        Schema::table('event', function (Blueprint $table) {
+        Schema::table('events', function (Blueprint $table) {
             $table->renameColumn("user_id", "admin_id");
         });
     }
@@ -25,7 +25,7 @@ class RenameUserIdToAdminId extends Migration
      */
     public function down()
     {
-        Schema::table('event', function (Blueprint $table) {
+        Schema::table('events', function (Blueprint $table) {
             $table->renameColumn("admin_id", "user_id");
         });
     }
