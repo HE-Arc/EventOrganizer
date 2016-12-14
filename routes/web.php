@@ -38,18 +38,19 @@ Route::post('item',['uses' =>'EventItemController@store', 'as' => 'store_item'])
 
 
 //Add order
-    Route::post('order',['uses' =>'OrderController@userTakes', 'as' => 'store_orders']);
 
     Route::get('event/{id}', ['uses' => 'EventController@show', 'as' => 'show_event']);
 
 });
 
 
+//This should be here, since it has no need to be translated
+Route::post('order',['uses' =>'OrderController@userTakes', 'as' => 'store_orders']);
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('event/{id}', 'EventController@show');
 Route::get('login', 'Auth\AuthController@login');
 Route::post('login', 'Auth\AuthController@postLogin');
 Route::get('auth/token/{token}', 'Auth\AuthController@authenticate');
