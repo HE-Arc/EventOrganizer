@@ -1,5 +1,17 @@
 <ul>
 @foreach($participants as $participant)
-    <li>{{$participant->user->email}}</li>
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-content">
+                        @if($participant->user->name != "")
+                            {{$participant->user->name}}
+                        @else
+                            {{$participant->user->email}}
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
 @endforeach
 </ul>

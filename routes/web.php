@@ -40,7 +40,6 @@ Route::post('item',['uses' =>'EventItemController@store', 'as' => 'store_item'])
 
 
 //Add order
-    Route::post('order',['uses' =>'OrderController@userTakes', 'as' => 'store_orders']);
 
     Route::get('event/{id}', ['uses' => 'EventController@show', 'as' => 'show_event']);
 
@@ -48,16 +47,16 @@ Route::post('item',['uses' =>'EventItemController@store', 'as' => 'store_item'])
     Route::post('login', 'Auth\AuthController@postLogin');
     Route::get('auth/token/{token}', 'Auth\AuthController@authenticate');
     Route::get('logout', 'Auth\AuthController@logout');
+
+    //This should be here, since it has no need to be translated
+    //not with the autoredict ChackLang
+    Route::post('order',['uses' =>'OrderController@userTakes', 'as' => 'store_orders']);
 });
-
-
 
 
 Route::get('/', function () {
     return view('welcome');
 });
-
-
 
 
 

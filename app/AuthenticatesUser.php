@@ -62,7 +62,8 @@ class AuthenticatesUser
      */
     protected function createToken()
     {
-        $user = User::where(["email" => $this->request->email])->first();
+        $user = User::byEmail($this->request->email)->first();
+
         if(!$user){
             $user = User::create([
                 "email" => $this->request->email,
@@ -70,6 +71,7 @@ class AuthenticatesUser
                 "name" => $this->request->name
             ]);
         }
+
         return LoginToken::generateFor($user,$this->request->remember === "on");
     }
 }
