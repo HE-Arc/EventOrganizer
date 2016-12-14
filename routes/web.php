@@ -16,6 +16,8 @@ Route::group([
     'where' => ['lang' => '(fr|en)'],
     'middleware' => ['localization','auth']
 ], function(){
+
+    Route::get('/',['uses' => 'EventController@store', 'as' => 'store_event']);
     // List events page
     Route::get('event', ['uses' => 'EventController@showEvents', 'as' => 'list_events']);
 
@@ -42,17 +44,20 @@ Route::post('item',['uses' =>'EventItemController@store', 'as' => 'store_item'])
 
     Route::get('event/{id}', ['uses' => 'EventController@show', 'as' => 'show_event']);
 
+    Route::get('login', 'Auth\AuthController@login');
+    Route::post('login', 'Auth\AuthController@postLogin');
+    Route::get('auth/token/{token}', 'Auth\AuthController@authenticate');
+    Route::get('logout', 'Auth\AuthController@logout');
 });
+
+
 
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('event/{id}', 'EventController@show');
-Route::get('login', 'Auth\AuthController@login');
-Route::post('login', 'Auth\AuthController@postLogin');
-Route::get('auth/token/{token}', 'Auth\AuthController@authenticate');
-Route::get('logout', 'Auth\AuthController@logout');
+
+
 
 
