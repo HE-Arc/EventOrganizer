@@ -10,10 +10,15 @@ use Illuminate\Database\Eloquent\Model;
  */
 class EventItem extends Model
 {
-    protected $fillable=['name','qty_asked'];
+    protected $fillable=['id','name','qty_asked','image_id'];
 
     public function event(){
         return $this->belongsTo('App\Event');
+    }
+
+
+    public function image(){
+        return $this->belongsTo('App\ImageItem');
     }
 
     public function orders(){

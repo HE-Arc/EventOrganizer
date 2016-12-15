@@ -23,7 +23,6 @@ class CheckLang
         $domain = $request->root();
         $urlWithoutDomain = str_replace($domain, "", $request->url());
         $root = explode('/',$urlWithoutDomain);
-        $lang = "";
 
         if(count($root) > 1){
             $lang = $root[1];

@@ -5,17 +5,14 @@
             <!--Modal trigger-->
             <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Add picture</a>
             <img class="selected-image hidden-image" src=""/>
-            <input type="hidden" name="image_id" class="image-id" value=""/>
+            <input type="hidden" name="eventitem[][image_id]" class="image-id" value=""/>
         </div>
 
         <a class="delete-item" href="#" style="float: right">X</a>
-            <input type="hidden" value="{{id}}" name="eventitem[{{count_id}}][id]">
+            <input type="hidden" value="{{id}}" name="eventitem[][id]">
             <label for="name">Item à ajouter :</label>
-            <input length="30" name="eventitem[{{count_id}}][name]" type="text" value="{{name}}">
+            <input length="30" name="eventitem[][name]" type="text" value="{{name}}">
             <label for="qty_asked">Quantité :</label>
-            <input name="eventitem[{{count_id}}][qty_asked]" type="number" value="{{qty_asked}}">
-
-
-
+            <input name="eventitem[][qty_asked]" type="number" value="{{qty_asked}}">
     </div>
 </div>

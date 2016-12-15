@@ -76,14 +76,10 @@
                 $('#modal1').modal('close');
 
             });
-
-            var cpt = {{$event->eventItems->last()->id}}
-            {{dd("Salut")}}
             $("#addItem").click(function(){
-                var context = {count_id: cpt++}
                 var source = $("#model").html();
                 //var template = Handlebars.compile(source);
-                var html = template(context);
+                var html = template();
                 $("#itemsContainer").append(html).hide().fadeIn();
                 $(".delete-item").on('click',function () {
                     $(this).closest(".item").remove()
