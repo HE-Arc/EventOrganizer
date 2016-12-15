@@ -1,14 +1,19 @@
 <div class="card item col s12 m6" >
     <div class="card-content ">
 
-        <!--Modal trigger-->
-        <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Modal</a>
+        <div class="modal-container">
+            <!--Modal trigger-->
+            <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Add picture</a>
+            <img class="selected-image hidden-image" src=""/>
+            <input type="hidden" name="image_id" class="image-id" value=""/>
+        </div>
 
         <a class="delete-item" href="#" style="float: right">X</a>
+            <input type="hidden" value="{{id}}" name="eventitem[{{count_id}}][id]">
             <label for="name">Item à ajouter :</label>
-            <input length="30" name="eventitem[{{count}}][name]" type="text" value="{{name}}">
+            <input length="30" name="eventitem[{{count_id}}][name]" type="text" value="{{name}}">
             <label for="qty_asked">Quantité :</label>
-            <input name="eventitem[{{count}}][qty_asked]" type="number" value="{{qty_asked}}">
+            <input name="eventitem[{{count_id}}][qty_asked]" type="number" value="{{qty_asked}}">
 
 
 
