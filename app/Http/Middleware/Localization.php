@@ -17,7 +17,11 @@ class Localization
     {
         $lang = $request->route()->parameter('lang');
 
-        \App::setLocale($lang);
+        if($lang){
+            \App::setLocale($lang);
+        }
+
+
 
         //View::share('lang', 'fr');
         return $next($request);

@@ -58,14 +58,18 @@
         </div>
     </div>
     {!!  Form::close()!!}
+
     <script>
 
         $(function () {
 
             $(".item-qty-taken").on('change',(event) => {
                 var elem = event.target
+
                 var id = elem.getAttribute('item')
+
                 url = $(elem).closest('form').attr('action')
+
                 $.post(url, {
                         "qty_taken" : elem.value,
                         "event_item_id": id
@@ -73,11 +77,19 @@
                 ).done(() => {
                     $('#my-contrib-'+id+" > .item-order-value").html(elem.value)
 
-                    let perc = parseFloat(elem.value / elem.max * 100)
+                    var newValue = parseFloat(elem.value)
 
-                    $("#complete-bar-"+id).css("width",perc+"%");
+                    var oldValue = parseFloat($(elem).attr("old_value"))
 
-                    Materialize.toast(trans('pages.contribution_saved'), 500)
+                    var barCurrentValue = parseFloat($("#complete-bar-"+id)[0].style.width)
+
+                    var perc = parseFloat((newValue-oldValue) / elem.max * 100)
+
+                    $(elem).attr("old_value", elem.value)
+
+                    $("#complete-bar-"+id).css("width",(perc+barCurrentValue)+"%");
+
+                    Materialize.toast("{{trans('pages.contribution_saved')}}", 500)
 
                     $(elem).fadeOut("slow",()=>{
                         $(elem).parents('.card-action').find('.alter-take-btn').fadeIn("slow")
@@ -85,7 +97,7 @@
 
                 }).fail((error) => {
                     console.log(error)
-                    Materialize.toast(trans('pages.contribution_error'), 10000)
+                    Materialize.toast("{{trans('pages.contribution_error')}}", 10000)
                 })
             })
 

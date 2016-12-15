@@ -14,6 +14,8 @@ class LoginToken extends Model
      * @var array
      */
     protected $fillable = ['user_id', 'token','remember'];
+
+
     /**
      * Generate a new token for the given user.
      *
@@ -28,6 +30,8 @@ class LoginToken extends Model
             'remember' => $remember
         ]);
     }
+
+
     /**
      * Get the route key for implicit model binding.
      *

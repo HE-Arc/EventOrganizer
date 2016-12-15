@@ -39,7 +39,7 @@ class User extends Authenticatable
      */
     public static function byEmail($email)
     {
-        return static::where('email', $email)->firstOrFail();
+        return static::where('email', $email);
     }
 
     public function participants(){
@@ -49,6 +49,10 @@ class User extends Authenticatable
 
     public function events(){
         return $this->belongsToMany('App\Event','participants');
+    }
+
+    public function tokens(){
+        return $this->hasMany(LoginToken::class);
     }
 
 }
