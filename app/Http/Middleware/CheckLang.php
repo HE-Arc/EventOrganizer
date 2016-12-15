@@ -23,17 +23,21 @@ class CheckLang
         $domain = $request->root();
         $urlWithoutDomain = str_replace($domain, "", $request->url());
         $root = explode('/',$urlWithoutDomain);
-        $lang = "unknow";
+        $lang = "";
+
         if(count($root) > 1){
             $lang = $root[1];
+
         }
         else{
-            $urlWithoutDomain = "/event";
+            return redirect("/event");
         }
-        $localizeUrl = '';
+
+        //dd($lang);
 
         if(!Lang::has('pages.lang', $lang, false)){
             if(Lang::has('pages.lang', Config::get('app.locale'), false)){
+
                 $localizeUrl = $domain."/".Config::get('app.locale').$urlWithoutDomain;
             }
             else{

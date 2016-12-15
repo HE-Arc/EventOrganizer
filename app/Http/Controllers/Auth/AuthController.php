@@ -3,6 +3,8 @@ namespace App\Http\Controllers\Auth;
 use App\LoginToken;
 use App\AuthenticatesUser;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Login;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -26,6 +28,7 @@ class AuthController extends Controller
      */
     public function login()
     {
+        
         return view('auth.login');
     }
     /**
@@ -35,6 +38,7 @@ class AuthController extends Controller
      */
     public function postLogin()
     {
+        dd("HHHH");
         $this->auth->invite();
         // Or redirect to a page with this message.
         return 'Sweet - go check that email, yo.';
@@ -45,10 +49,11 @@ class AuthController extends Controller
      * @param  LoginToken $token
      * @return string
      */
-    public function authenticate(LoginToken $token)
+    public function authenticate(Request $request)
     {
+        $token = LoginToken::where("token",$request->token)->first();
         $this->auth->login($token);
-        return redirect('dashboard');
+        return redirect('/event');
     }
     /**
      * Log out the user.

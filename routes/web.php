@@ -43,10 +43,8 @@ Route::post('item',['uses' =>'EventItemController@store', 'as' => 'store_item'])
 
     Route::get('event/{id}', ['uses' => 'EventController@show', 'as' => 'show_event']);
 
-    Route::get('login', 'Auth\AuthController@login');
-    Route::post('login', 'Auth\AuthController@postLogin');
-    Route::get('auth/token/{token}', 'Auth\AuthController@authenticate');
-    Route::get('logout', 'Auth\AuthController@logout');
+
+
 
     //This should be here, since it has no need to be translated
     //not with the autoredict ChackLang
@@ -54,9 +52,24 @@ Route::post('item',['uses' =>'EventItemController@store', 'as' => 'store_item'])
 });
 
 
+
+Route::group([
+    'prefix' => '{lang}',
+    'where' => ['lang' => '(fr|en)'],
+    'middleware' => ['localization']
+], function(){
+
+    Route::get('login', 'Auth\AuthController@login');
+    Route::post('login', 'Auth\AuthController@postLogin');
+    Route::get('auth/token/{token}', 'Auth\AuthController@authenticate');
+    Route::get('logout', 'Auth\AuthController@logout');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+
 
 
 
