@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\EventItem;
+use App\Imageitem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use App\Event;
@@ -42,12 +43,19 @@ class EventItemController extends Controller
             'name'=>'required|max:30',
             'qty_asked'=>'required'
         ]);*/
+
         $eventId = $request->all()['event_id'];
         foreach($request->all()['eventitem'] as $key=>$r){
             if(is_array($r)){
                /* echo "<pre>";
                 echo print_r($r);
                 echo "</pre>";*/
+               /* if($r->exists()){
+                    
+                }
+                else{
+                    
+                }*/
                 $eventitem =EventItem::create($r);
                 $eventitem->event()->associate(Event::findOrFail($eventId));
                 $eventitem->save();
@@ -65,9 +73,10 @@ class EventItemController extends Controller
      */
     public function show(Request $request)
     {
-        $event = Event::with('eventItems')->findOrFail($request->id);
-        $eventItem = new EventItem();
-        return view('eventitems.eventitems', compact('event', 'eventItem'));
+        $event = Event::with('eventItems')->find($request->id);
+        //$eventItem = new EventItem();
+        $images = Imageitem::all();
+        return view('eventitems.eventitems', compact('event','images'));
     }
 
     /**

@@ -11,3 +11,6 @@
     right: 50px;
     bottom: 50px;
 }
+.hidden-image{
+    display: none !important;
+}
