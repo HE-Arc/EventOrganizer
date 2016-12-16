@@ -42,6 +42,7 @@
                 <p>Nothing to bring ! Everything's on the house !</p>
             @endforelse
         </div>
+
         <a class="btn-floating btn-large waves-effect waves-light red" href="{{ route('list_event_items', ['id' => $event->id, 'lang' => App::getLocale()]) }}" id="modifiyItem"><i class="material-icons">add</i></a>
 
         <div id="participants">
