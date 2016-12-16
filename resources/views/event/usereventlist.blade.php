@@ -33,7 +33,7 @@
 
                             -->
 
-                        <a href="{{ route("show_event", ['id' => $event->id, 'lang' => App::getLocale()]) }}" class="collection-item">Go to event</a>
+                        <a href="{{ route("show_event", ['id' => $event->id, 'lang' => App::getLocale()]) }}" class="collection-item">{{ trans('pages.go_to_event') }}</a>
                         <p><i class="material-icons">place</i> {{$event->location}}</p>
 
                         <p>{{$event->description}}</p>

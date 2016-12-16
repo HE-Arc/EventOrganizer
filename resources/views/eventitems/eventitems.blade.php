@@ -9,7 +9,7 @@
 
 @section('content')
 
-    <h3>Ajouter un item à la liste</h3>
+    <h3>{{ trans('pages.add_a_item') }}</h3>
 
     {!! Form::open(array('url'=>route("store_item", ['lang' => App::getLocale()]))) !!}
 
@@ -17,7 +17,7 @@
         @forelse($event->eventItems as $item)
             @include("eventitems.item_template", ['id'=>$item->id, 'name'=>$item->name, 'qty_asked'=>$item->qty_asked])
         @empty
-            No items
+            {{ trans('pages.no_item') }}
         @endforelse
 
     </div>
@@ -33,7 +33,7 @@
     <!-- Modal Structure -->
     <div id="modal1" class="modal  bottom-sheet">
         <div class="modal-content">
-            <h4>Choose a picture</h4>
+            <h4>{{ trans('pages.choose_picture') }}</h4>
             <div id="image-container">
                 @foreach($images as $image)
                     <img src="{{url("/imgs", $image->url)}}" data-imageId="{{$image->id}}" alt="Image" class="item-image"/>
