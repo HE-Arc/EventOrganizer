@@ -1,15 +1,17 @@
 <div class="card item col s12 m6" >
     <div class="card-content ">
 
-        <div class="modal-container">
-            <!--Modal trigger-->
-            <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Add picture</a>
-            <img class="selected-image hidden-image" src=""/>
-            <input type="hidden" name="eventitem[image_id][]" class="image-id" value=""/>
-        </div>
+            <!-- TODO: show image if already assigned -->
+            <div class="modal-container">
+                <!--Modal trigger-->
+                <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Add picture</a>
+                <img class="selected-image hidden-image" src=""/>
+                <input type="hidden" name="eventitem[image_id][]" class="image-id" value=""/>
+            </div>
 
-        <a class="delete-item" href="#" style="float: right">X</a>
+            <a class="delete-item" href="#" style="float: right">X</a>
             <input type="hidden" value="{{id}}" name="eventitem[id][]" value="">
+            <input type="hidden" value="0" name="eventitem[delete][]" class="to-delete" />
             <label for="name">Item à ajouter :</label>
             <input length="30" name="eventitem[name][]" type="text" value="{{name}}">
             <label for="qty_asked">Quantité :</label>

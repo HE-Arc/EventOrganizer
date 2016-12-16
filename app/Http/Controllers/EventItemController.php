@@ -33,7 +33,8 @@ class EventItemController extends Controller
                 "id" => $eventItemsSeparated["id"],
                 "image_id" => $eventItemsSeparated["image_id"],
                 "name" => $eventItemsSeparated["name"],
-                "qty_asked" => $eventItemsSeparated["qty_asked"]
+                "qty_asked" => $eventItemsSeparated["qty_asked"],
+                "delete" => $eventItemsSeparated["delete"]
             ]);
 
             foreach ($valuesCombined as $item){
@@ -43,16 +44,23 @@ class EventItemController extends Controller
                     return $e !== "";
                 });
 
-                echo var_dump($item)."<br>";
-
+                //Existing item
                 if(array_key_exists("id",$item)){
-                    $evenItemInst = EventItem::find($item["id"]);
-                    $evenItemInst->update($item);
+
+                    // User wants to delete it or update it?
+                    if($item["delete"] === "1"){
+                        EventItem::destroy($item["id"]);
+                    }else{
+                        $evenItemInst = EventItem::find($item["id"]);
+                        $evenItemInst->update($item);
+                        $event->eventItems()->save($evenItemInst);
+                    }
                 }else{
+                    // New item
                     $evenItemInst = EventItem::create($item);
+                    $event->eventItems()->save($evenItemInst);
                 }
 
-                $event->eventItems()->save($evenItemInst);
             }
 
 

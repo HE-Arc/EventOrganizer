@@ -12,13 +12,24 @@ class EventItem extends Model
 {
     protected $fillable=['id','name','qty_asked','image_id'];
 
+
+    protected static function boot() {
+        parent::boot();
+
+
+        // Deletes all orders from this item
+        static::deleting(function($item) {
+            $item->orders()->delete();
+        });
+    }
+
     public function event(){
         return $this->belongsTo('App\Event');
     }
 
 
     public function image(){
-        return $this->belongsTo('App\ImageItem');
+        return $this->belongsTo('App\Imageitem');
     }
 
     public function orders(){

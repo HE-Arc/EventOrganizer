@@ -37,29 +37,23 @@
             <h4>Choose a picture</h4>
             <div id="image-container">
                 @foreach($images as $image)
-                    <img src="{{url($image->url)}}" data-imageId="{{$image->id}}" alt="Image" class="item-image"/>
+                    <img src="{{url("/imgs", $image->url)}}" data-imageId="{{$image->id}}" alt="Image" class="item-image"/>
                 @endforeach
             </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Choose</a>
         </div>
     </div>
 
     <script>
         $(document).ready(function() {
-            //modal
-            //$('#modal1').modal('open');
-
             var currentSelectedItem = undefined;
 
             $('.modal').modal();
 
-            $('.modal-trigger').click(function (eventM) {
+            $('body').on("click",'.modal-trigger', function (eventM) {
                 currentSelectedItem = $(eventM.target).closest('.item');
             });
 
-            $(".item-image").click(function(eventJ){
+            $(".item-image").on("click", function(eventJ){
 
                 var url = $(eventJ.target).attr('src');
                 //console.log($(eventJ.target).attr('src'));
@@ -68,7 +62,6 @@
                 console.log(currentSelectedItem);
 
                 currentSelectedItem.find('.image-id').attr('value',id);
-
                 currentSelectedItem.find('.modal-trigger').addClass('hidden-image');
                 currentSelectedItem.find('.selected-image').removeClass('hidden-image');
                 currentSelectedItem.find('.selected-image').attr('src',url);
@@ -77,8 +70,6 @@
 
             });
             $("#addItem").click(function(){
-                var source = $("#model").html();
-                //var template = Handlebars.compile(source);
                 var html = template();
                 $("#itemsContainer").append(html).hide().fadeIn();
                 $(".delete-item").on('click',function () {
@@ -86,7 +77,11 @@
                 })
             });
 
-
+            $('.delete-item').on("click",function(event){
+                var item = $(event.target).closest(".item");
+                item.find('.to-delete').val("1");
+                item.hide("slow");
+            });
         });
     </script>
 @endsection

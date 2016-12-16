@@ -1,7 +1,12 @@
 <div class="col s12 m6">
     <div class="card ">
         <div class="card-image" style="float:left">
-            <img alt="item {{$item->name}} thumbnail" src="{{url('/')}}/imgs/colddrink-icon.png" class="item-image">
+
+            @if($item->image()->first() == null)
+                <img alt="item {{$item->name}} thumbnail" src="{{url('/',"imgs/colddrink-icon.png")}}" class="item-image">
+            @else
+                <img alt="item {{$item->name}} thumbnail" src="{{url('/imgs',$item->image->url)}}" class="item-image">
+            @endif
         </div>
         <div class="card-content activator">
             <span class="card-title activator">{{$item->qty_asked}} de {{$item->name}}</span>
