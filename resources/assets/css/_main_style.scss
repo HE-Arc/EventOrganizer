@@ -5,6 +5,18 @@ body {
     flex-direction: column;
 }
 
-main {
-    flex: 1 0 auto;
+
+#custom-bar-title{
+    font-size: 1rem;
+    font-style: italic;
 }
+
+#logo-bar{
+    margin-left:10px;
+}
+
+
+#main-app-container{
+    min-height: 80%;
+}
+
