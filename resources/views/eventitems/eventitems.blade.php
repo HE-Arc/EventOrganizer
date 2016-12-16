@@ -24,7 +24,7 @@
     </div>
 
     {!! Form::hidden('event_id',$event->id) !!}
-    {!! Form::submit(trans('pages.add')) !!}
+    {!! Form::submit(trans('pages.add'),["class" => "btn"]) !!}
 
     {!! Form::close() !!}
     <div id="addButton">

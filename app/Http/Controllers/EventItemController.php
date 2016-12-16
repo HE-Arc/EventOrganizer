@@ -19,44 +19,46 @@ class EventItemController extends Controller
      */
     public function store(Request $request)
     {
-       // TODO: validations !
-       $fields = [
-           "id",
-           "name",
-           "qty_asked",
-           "image_id"
-       ];
-
 
         $eventId = $request->all()['event_id'];
-        $event = Event::findOrFail($eventId);
-        $eventItems = $request->all()['eventitem'];
 
-        // Very quick and dirty, TODO: do this better...
-        for($i=0;$i < count($eventItems); $i+= count($fields)){
-            $fieldsValues = [];
 
-            for($j=0;$j<count($fields);$j++){
+        if($request->has("eventitem")){
 
-                $value = array_values($eventItems[$i+$j])[0];
+            $eventItemsSeparated = $request->all()['eventitem'];
 
-                if($value !== "")
-                    $fieldsValues[array_keys($eventItems[$i+$j])[0]] = $value;
+            $event = Event::findOrFail($eventId);
 
+            $valuesCombined = $this->combine_keys_with_arrays($eventItemsSeparated["name"],[
+                "id" => $eventItemsSeparated["id"],
+                "image_id" => $eventItemsSeparated["image_id"],
+                "name" => $eventItemsSeparated["name"],
+                "qty_asked" => $eventItemsSeparated["qty_asked"]
+            ]);
+
+            foreach ($valuesCombined as $item){
+
+                //Removes empty fields for default values
+                $item = array_filter($item, function($e){
+                    return $e !== "";
+                });
+
+                echo var_dump($item)."<br>";
+
+                if(array_key_exists("id",$item)){
+                    $evenItemInst = EventItem::find($item["id"]);
+                    $evenItemInst->update($item);
+                }else{
+                    $evenItemInst = EventItem::create($item);
+                }
+
+                $event->eventItems()->save($evenItemInst);
             }
 
-            if(array_key_exists("id",$fieldsValues)){
-                $evenItemInst = EventItem::find($fieldsValues["id"]);
-                $evenItemInst->update($fieldsValues);
-            }else{
-                $evenItemInst = EventItem::create($fieldsValues);
-            }
 
-            $event->eventItems()->save($evenItemInst);
-
+            $event->save();
         }
 
-        $event->save();
 
         return redirect("/event/$eventId");
 
@@ -73,5 +75,18 @@ class EventItemController extends Controller
         $event = Event::with('eventItems')->find($request->id);
         $images = Imageitem::all();
         return view('eventitems.eventitems', compact('event','images'));
+    }
+
+    private function combine_keys_with_arrays($keys, $arrays) {
+        $results = array();
+
+        foreach ($arrays as $subKey => $arr)
+        {
+           foreach ($keys as $index => $key)
+           {
+               $results[$key][$subKey] = $arr[$index];
+           }
+        }
+        return $results;
     }
 }

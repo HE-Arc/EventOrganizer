@@ -22,9 +22,7 @@
                 <div class="card-stacked">
                     <div class="card-content">
                         <span class="card-title">{{$event->name}}</span>
-                        <div style="float:right;" class="chip white-text green accent-4">
-                            Accomplit à 70% !
-                        </div>
+
                         <p>{{$event->description}}</p>
 
                     </div>
