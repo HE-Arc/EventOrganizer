@@ -9,7 +9,7 @@
 
 @section('content')
 
-    <h3>Ajouter un item à la liste</h3>
+    @section('bar_title',"Ajoutez des items à $event->name")
 
     {!! Form::open(array('url'=>route("store_item", ['lang' => App::getLocale()]))) !!}
 
@@ -19,7 +19,6 @@
         @empty
             No items
         @endforelse
-
     </div>
 
     {!! Form::hidden('event_id',$event->id) !!}
