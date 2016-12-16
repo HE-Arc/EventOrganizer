@@ -5,5 +5,7 @@
 // Variables
 @import "variables";
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import '../css/main_style';
+@import '../css/creation_style';
+@import "../css/show_event_style";
+@import "../css/event_item_style";

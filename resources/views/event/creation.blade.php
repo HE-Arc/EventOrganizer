@@ -1,5 +1,3 @@
-{{ Html::style( asset('css/creation_style.css') ) }}
-
 @extends('layouts.default')
 
 @section('title', trans('pages.create_new_event'))

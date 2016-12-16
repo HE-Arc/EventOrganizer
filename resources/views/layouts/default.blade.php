@@ -17,7 +17,7 @@
         <title>Event Organizer @yield('title')</title>
 
 
-        {{ Html::style( asset('css/main_style.css') ) }}
+        {{ Html::style( asset('css/app.css') ) }}
 
 
     </head>

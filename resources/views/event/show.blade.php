@@ -1,6 +1,3 @@
-
-{{ Html::style( asset('css/show_event_style.css') ) }}
-
 @extends('layouts.default')
 
 @section('title', $event->name)

@@ -1,4 +1,3 @@
-{{ Html::style( asset('css/event_item_style.css') ) }}
 @extends('layouts.default')
 
 @section('title', trans('pages.add_a_item'))
