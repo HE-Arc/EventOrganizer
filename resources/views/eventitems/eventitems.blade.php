@@ -9,7 +9,9 @@
 
 @section('content')
 
-    <h3>{{ trans('pages.add_a_item') }}</h3>
+
+    @section('bar_title',trans('pages.add_a_item') + "$event->name")
+
 
     {!! Form::open(array('url'=>route("store_item", ['lang' => App::getLocale()]))) !!}
 
@@ -19,7 +21,6 @@
         @empty
             {{ trans('pages.no_item') }}
         @endforelse
-
     </div>
 
     {!! Form::hidden('event_id',$event->id) !!}

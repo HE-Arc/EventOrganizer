@@ -22,25 +22,27 @@
 
     </head>
     <body>
-        <nav>
-            <div class="nav-wrapper green accent-4">
-                <a href="#" class="brand-logo">WIN</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="{{ action('EventController@showCreationPage', App::getLocale()) }}">{{ trans('pages.new_event') }}</a></li>
-                    <li><a href="{{ action('EventController@showEvents', App::getLocale()) }}">{{ trans('pages.my_events') }}</a></li>
-                </ul>
+        <div id="main-app-container">
+            <nav>
+                <div class="nav-wrapper green accent-4">
+                    <a href="#" class="brand-logo"><span id="logo-bar">WIN</span> <span id="custom-bar-title">@yield("bar_title")</span></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="{{ action('EventController@showCreationPage', App::getLocale()) }}">{{ trans('pages.new_event') }}</a></li>
+                        <li><a href="{{ action('EventController@showEvents', App::getLocale()) }}">{{ trans('pages.my_events') }}</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container">
+                @yield('content')
             </div>
-        </nav>
-        <div class="container">
-            @yield('content')
         </div>
 
         <footer class="page-footer green accent-4">
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">
-                        <h5 class="white-text">Footer Content</h5>
-                        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                        <h5 class="white-text">What I need</h5>
+                        <p class="grey-text text-lighten-4">Makes events planning great again</p>
                     </div>
                 </div>
             </div>
@@ -50,7 +52,6 @@
                 </div>
             </div>
         </footer>
-
         {{ Html::script( asset('js/app.js') ) }}
     </body>
 

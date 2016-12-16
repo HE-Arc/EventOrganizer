@@ -12,9 +12,17 @@
             <a class="delete-item" href="#" style="float: right">X</a>
             <input type="hidden" value="{{id}}" name="eventitem[id][]" value="">
             <input type="hidden" value="0" name="eventitem[delete][]" class="to-delete" />
+        <div class="row">
+            <div class="input-field">
             <label for="name">Item à ajouter :</label>
             <input length="30" name="eventitem[name][]" type="text" value="{{name}}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
             <label for="qty_asked">Quantité :</label>
             <input name="eventitem[qty_asked][]" type="number" value="{{qty_asked}}">
+            </div>
+        </div>
     </div>
 </div>
