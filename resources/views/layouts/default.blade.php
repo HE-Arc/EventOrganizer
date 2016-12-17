@@ -34,6 +34,10 @@
             </nav>
             <div class="container">
                 @yield('content')
+
+                @if ($errors->any())
+                    {!!  implode('', $errors->all('<div class="error">:message</div>')) !!}
+                @endif
             </div>
         </div>
 
@@ -53,6 +57,8 @@
             </div>
         </footer>
         {{ Html::script( asset('js/app.js') ) }}
+
+
     </body>
 
 </html>

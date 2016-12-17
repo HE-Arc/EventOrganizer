@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\EventItem;
 use App\Imageitem;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
 use App\Event;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Redirect;
+use Validator;
 
 class EventItemController extends Controller
 {
@@ -20,12 +22,12 @@ class EventItemController extends Controller
     public function store(Request $request)
     {
 
-        $eventId = $request->all()['event_id'];
+        $eventId = $request->event_id;
 
 
         if($request->has("eventitem")){
 
-            $eventItemsSeparated = $request->all()['eventitem'];
+            $eventItemsSeparated = $request->get("eventitem");
 
             $event = Event::findOrFail($eventId);
 
@@ -43,6 +45,19 @@ class EventItemController extends Controller
                 $item = array_filter($item, function($e){
                     return $e !== "";
                 });
+
+                $v = Validator::make($item, [
+                    "name" => "required",
+                    "qty_asked" => "required|numeric|min:0",
+                    "id" => "exists:event_items,id",
+                    "image_id" => "exists:imageitems,id"
+                ]);
+
+                if ($v->fails()) {
+                    return Redirect::back()
+                        ->withErrors($v)
+                        ->withInput();
+                }
 
                 //Existing item
                 if(array_key_exists("id",$item)){
@@ -67,9 +82,7 @@ class EventItemController extends Controller
             $event->save();
         }
 
-
-        return redirect("/event/$eventId");
-
+        return redirect(route("show_event", ['id' => $eventId, 'lang' => App::getLocale()]));
     }
 
     /**
