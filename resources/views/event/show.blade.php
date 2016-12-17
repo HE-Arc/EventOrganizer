@@ -29,9 +29,9 @@
 
         <div class="row col s6">
             <ul class="tabs">
-                <li class="tab col s4"><a class="active green-text accent-4" href="#items">Items</a></li>
-                <li class="tab col s4"><a class=" green-text accent-4" href="#participants">Participants</a></li>
-                <li class="tab col s4"><a class=" green-text accent-4" href="#info">Infos</a></li>
+                <li class="tab col s4"><a class="active green-text accent-4" href="#items">{{ trans('pages.items') }}</a></li>
+                <li class="tab col s4"><a class=" green-text accent-4" href="#participants">{{ trans('pages.participants') }}</a></li>
+                <li class="tab col s4"><a class=" green-text accent-4" href="#info">{{ trans('pages.infos') }}</a></li>
             </ul>
         </div>
 
@@ -39,9 +39,10 @@
             @forelse ($event->eventItems as $item)
                 @include('event.show_item', ['item' => $item,'user' => $user])
             @empty
-                <p>Nothing to bring ! Everything's on the house !</p>
+                <p>{{ trans('pages.nothing_to_bring') }}</p>
             @endforelse
         </div>
+
         <a class="btn-floating btn-large waves-effect waves-light red" href="{{ route('list_event_items', ['id' => $event->id, 'lang' => App::getLocale()]) }}" id="modifiyItem"><i class="material-icons">add</i></a>
 
         <div id="participants">

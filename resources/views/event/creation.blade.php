@@ -2,6 +2,7 @@
 
 @section('title', trans('pages.create_new_event'))
 
+@section('bar_title',trans('pages.new_event'))
 
 @section('content')
 
@@ -10,7 +11,6 @@
         <div class="col s12 m6">
             <div class="card" id="creation-form">
                 <div class="card-content">
-                    <span class="card-title">{{ trans('pages.new_event') }}</span>
                     <div class="row">
                         <div class="input-field">
                             {!!  Form::label('name',trans('pages.enter_event_name'))!!}

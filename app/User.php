@@ -55,4 +55,17 @@ class User extends Authenticatable
         return $this->hasMany(LoginToken::class);
     }
 
+    /**
+     * Returns the name if not empty,
+     * or the email name if the name is empty
+     * @return mixed
+     */
+    public function getIdentity(){
+        if($this->name === ""){
+            return explode('@', $this->email)[0];
+        }else{
+            return $this->name;
+        }
+    }
+
 }

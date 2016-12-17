@@ -4,11 +4,7 @@
             <div class="col s12 m6">
                 <div class="card">
                     <div class="card-content">
-                        @if($participant->user->name != "")
-                            {{$participant->user->name}}
-                        @else
-                            {{$participant->user->email}}
-                        @endif
+                        {{$participant->user->getIdentity()}}
                     </div>
                 </div>
             </div>

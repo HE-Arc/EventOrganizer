@@ -23,14 +23,21 @@ return[
     //show.blade.php
     'contribution_saved' => "Votre contribution est enregistrée, merci !",
     'contribution_error' => "Erreur, veuillez consulter la console (Faudra changer ça pour la version finale",
+    'nothing_to_bring' => 'Plus rien à apporter, tout est prêt',
+
+    'items' => 'Articles',
+    'participants' => 'Participants',
+    'infos' => 'Information',
     
     //show_info.blade.php
 
     //show_item.blade.php
     
     //eventitems.blade.php
-    'add' => 'Ajouter',
-    'add_a_item' => 'Ajout d\'un item',
+    'add' => 'Terminer',
+    'add_a_item' => 'Ajout d\'un article',
+    'no_item' => "Rien pour le moment",
+    'choose_picture' => 'Choisissez une image',
     
     //welcome.blade.php
     'login' => 'Connexion',
@@ -39,6 +46,28 @@ return[
     'news' => 'News',
     'forge' => 'Forge',
     'github' => 'GitHub',
+
+    //email_click_to_login
+    'welcome_to_eventorganizer' => 'Bienvenue chez EventOrganizer',
+    'connect_yourseld' => 'Connectez vous !',
+
+    //503
+    'be_right_back' => 'Be right back',
+
+    //login
+    'email' => 'Mél.',
+    'name_opt' => 'Votre nom (optionnel)',
+    'send' => 'Envoyer',
+    'remember_me' => 'Se souvenir de moi',
+    'login' => 'Se connecter',
+
+    //item_template
+    'add_picture' => 'Ajouter une image',
+    'add_item' => 'Ajouter un article',
+    'quantity' => 'Quantité',
+
+
+
 
     'names' => '© 2016 Debrot Aurélie | Ruedin Cyril | Ferreira Venancio Diogo'
     

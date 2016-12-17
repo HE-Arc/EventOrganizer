@@ -1,22 +1,12 @@
 @extends('layouts.default')
 
-@section('title', '$user->name')
+@section('title', $user->name)
+
+@section('bar_title',$user->name." ".trans('pages.my_events'))
 
 @section('content')
 
     <div id="main-container">
-
-
-        <div class="row col s6 green-text accent-4">
-            <div class="card horizontal">
-                <div class="card-stacked">
-                    <div class="card-content">
-                        <span class="card-title">{{$user->name}}</span>
-                        <p>{{ trans('pages.my_events') }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div id="events" class="collection">
         <ul class="collapsible" data-collapsible="accordion">
@@ -33,7 +23,7 @@
 
                             -->
 
-                        <a href="{{ route("show_event", ['id' => $event->id, 'lang' => App::getLocale()]) }}" class="collection-item">Go to event</a>
+                        <a href="{{ route("show_event", ['id' => $event->id, 'lang' => App::getLocale()]) }}" class="collection-item">{{ trans('pages.go_to_event') }}</a>
                         <p><i class="material-icons">place</i> {{$event->location}}</p>
 
                         <p>{{$event->description}}</p>

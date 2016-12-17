@@ -29,6 +29,7 @@
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="{{ action('EventController@showCreationPage', App::getLocale()) }}">{{ trans('pages.new_event') }}</a></li>
                         <li><a href="{{ action('EventController@showEvents', App::getLocale()) }}">{{ trans('pages.my_events') }}</a></li>
+                        <li><a href="sass.html"><i class="material-icons left">perm_identity</i>{{auth()->user()->getIdentity()}}</a></li>
                     </ul>
                 </div>
             </nav>
