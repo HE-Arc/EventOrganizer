@@ -27,13 +27,19 @@
             </div>
         </div>
 
-        <div class="row col s6">
-            <ul class="tabs">
-                <li class="tab col s4"><a class="active green-text accent-4" href="#items">{{ trans('pages.items') }}</a></li>
-                <li class="tab col s4"><a class=" green-text accent-4" href="#participants">{{ trans('pages.participants') }}</a></li>
-                <li class="tab col s4"><a class=" green-text accent-4" href="#info">{{ trans('pages.infos') }}</a></li>
-            </ul>
+        <div class="row col s12">
+            <div class="card">
+                <div class="card-content event-tabs-container">
+                    <ul class="tabs">
+                        <li class="tab col s4"><a class="active green-text accent-4" href="#items">{{ trans('pages.items') }}</a></li>
+                        <li class="tab col s4"><a class=" green-text accent-4" href="#participants">{{ trans('pages.participants') }}</a></li>
+                        <li class="tab col s4"><a class=" green-text accent-4" href="#info">{{ trans('pages.infos') }}</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
+
+
 
         <div id="items" class="row col s12">
             @forelse ($event->eventItems as $item)
