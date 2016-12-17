@@ -4,7 +4,7 @@
             <div class="col s12 m6">
                 <div class="card">
                     <div class="card-content">
-                        {{$participant->user->getIdentity()}}
+                        {{$participant->user->identity}}
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 <?php
 
-use Carbon\Carbon;
+use App\Imageitem;
 use Illuminate\Database\Seeder;
 
 class ImagesSeed extends Seeder
@@ -15,11 +15,7 @@ class ImagesSeed extends Seeder
         $filesInFolder = File::files('public/imgs');
         foreach($filesInFolder as $path){
             $imageName = str_replace("public/imgs/","",$path);
-            DB::table('imageitems')->insert([
-                'url' => $imageName,
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ]);
+            Imageitem::create(["url" => $imageName]);
         }
     }
 }

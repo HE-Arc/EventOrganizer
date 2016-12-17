@@ -60,7 +60,7 @@ class User extends Authenticatable
      * or the email name if the name is empty
      * @return mixed
      */
-    public function getIdentity(){
+    public function getIdentityAttribute(){
         if($this->name === ""){
             return explode('@', $this->email)[0];
         }else{

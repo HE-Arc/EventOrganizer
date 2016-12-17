@@ -27,7 +27,7 @@
                 <div class="nav-wrapper green accent-4">
                     @if (Auth::check())
                         <ul id="slide-out" class="side-nav">
-                            <li><a href="sass.html"><i class="material-icons left">perm_identity</i>{{auth()->user()->getIdentity()}}</a></li>
+                            <li><a href="sass.html"><i class="material-icons left">perm_identity</i>{{auth()->user()->identity}}</a></li>
                             <li><a href="{{ route('create_event',['lang' => App::getLocale()]) }}"><i class="material-icons left">mode_edit</i>{{ trans('pages.new_event') }}</a></li>
                             <li><a href="{{ route('list_events',['lang' => App::getLocale()])}}"><i class="material-icons left">list</i>{{ trans('pages.my_events') }}</a></li>
                             <li><a href="{{ route('logout',['lang' => App::getLocale()]) }}"><i class="material-icons left">power_settings_new</i>{{ trans('pages.logout') }}</a></li>
@@ -41,7 +41,7 @@
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         @if (Auth::check())
                             <li><a href="{{ route('create_event',['lang' => App::getLocale()]) }}"><i class="material-icons left">mode_edit</i>{{ trans('pages.new_event') }}</a></li>
-                            <li><a href="{{ route('list_events',['lang' => App::getLocale()]) }}"><i class="material-icons left">perm_identity</i>{{auth()->user()->getIdentity()}}</a></li>
+                            <li><a href="{{ route('list_events',['lang' => App::getLocale()]) }}"><i class="material-icons left">perm_identity</i>{{auth()->user()->identity}}</a></li>
                             <li><a href="{{ route('logout',['lang' => App::getLocale()]) }}"><i class="material-icons left">power_settings_new</i>{{ trans('pages.logout') }}</a></li>
                         @endif
                     </ul>
