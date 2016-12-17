@@ -11,6 +11,7 @@ return[
     'go_to_event' => "Aller à l'évènement",
     'nothing_to_do' => "Vous n'avez pas d'évènement, organisez quelque chose !",
     'new_event' => "Nouvel évènement",
+    'logout' => 'Se déconnecter',
 
     //creation.blade.php
     'create_new_event' => 'Création d\'un événements',
@@ -35,7 +36,7 @@ return[
     
     //eventitems.blade.php
     'add' => 'Terminer',
-    'add_a_item' => 'Ajout d\'un article',
+    'add_a_item' => 'Ajout d\'un article pour :name',
     'no_item' => "Rien pour le moment",
     'choose_picture' => 'Choisissez une image',
     

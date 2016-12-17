@@ -2,7 +2,7 @@
 
 @section('title', $user->name)
 
-@section('bar_title',$user->name." ".trans('pages.my_events'))
+@section('bar_title',trans('pages.my_events'))
 
 @section('content')
 

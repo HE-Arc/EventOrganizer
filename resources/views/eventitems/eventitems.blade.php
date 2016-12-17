@@ -10,7 +10,7 @@
 @section('content')
 
 
-    @section('bar_title',trans('pages.add_a_item') + "$event->name")
+    @section('bar_title',trans('pages.add_a_item',['name' => $event->name]))
 
 
     {!! Form::open(array('url'=>route("store_item", ['lang' => App::getLocale()]))) !!}

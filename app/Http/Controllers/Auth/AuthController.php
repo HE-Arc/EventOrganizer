@@ -40,7 +40,7 @@ class AuthController extends Controller
     {
         $this->auth->invite();
         // Or redirect to a page with this message.
-        return 'Sweet - go check that email, yo.';
+        return view('auth.go_check_email');
     }
     /**
      * Login the user, using the given token.

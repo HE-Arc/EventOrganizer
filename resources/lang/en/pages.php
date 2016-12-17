@@ -8,7 +8,7 @@ return[
     'go_to_event' => "Go to event",
     'nothing_to_do' => 'Nothing to do, let\'s organize some event',
     'new_event' => "New event",
-
+    'logout' => 'logout',
 
     //creation.blade.php
     'create_new_event' => 'Create a event',
@@ -34,7 +34,7 @@ return[
 
     //eventitems.blade.php
     'add' => 'Finish',
-    'add_a_item' => 'Add an item',
+    'add_a_item' => 'Add an item for :name',
     'no_item' => 'Nothing for the moment',
 
     'choose_picture' => 'Choose a picture',

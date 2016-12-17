@@ -62,7 +62,7 @@ Route::group([
     Route::get('login', 'Auth\AuthController@login');
     Route::post('login', 'Auth\AuthController@postLogin');
     Route::get('auth/token/{token}', 'Auth\AuthController@authenticate');
-    Route::get('logout', 'Auth\AuthController@logout');
+    Route::get('logout', ['uses' => 'Auth\AuthController@logout', 'as' => 'logout']);
 });
 
 Route::get('/', function () {
