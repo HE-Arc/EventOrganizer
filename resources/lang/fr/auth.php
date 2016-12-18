@@ -16,6 +16,6 @@ return [
     'failed'   => 'Ces identifiants ne correspondent pas à nos enregistrements',
     'throttle' => 'Trop de tentatives de connexion. Veuillez essayer de nouveau dans :seconds secondes.',
     'go_check_title' => 'Allez voir vos e-mails',
-    'go_check' => 'Un email avec un lien de connexion vous à été envoyé'
+    'go_check' => 'Un email avec un lien de connexion vous a été envoyé'
 
 ];
