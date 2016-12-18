@@ -33,7 +33,7 @@ class CheckLang
             return redirect("/event");
         }
 
-        //dd($lang);
+
 
         if(!Lang::has('pages.lang', $lang, false)){
             if(Lang::has('pages.lang', $browserLang, false)){
@@ -41,7 +41,7 @@ class CheckLang
                 $localizeUrl = $domain."/".$browserLang.$urlWithoutDomain;
             }
             else{
-                $domain."/en".$urlWithoutDomain;
+                $localizeUrl = $domain."/en".$urlWithoutDomain;
             }
             return redirect($localizeUrl);
         }
