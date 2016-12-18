@@ -21,6 +21,7 @@ class CheckLang
 
         //Don't check if lang is invalid
         $domain = $request->root();
+        $browserLang = substr($request->server('HTTP_ACCEPT_LANGUAGE'), 0,2);
         $urlWithoutDomain = str_replace($domain, "", $request->url());
         $root = explode('/',$urlWithoutDomain);
 
@@ -35,9 +36,9 @@ class CheckLang
         //dd($lang);
 
         if(!Lang::has('pages.lang', $lang, false)){
-            if(Lang::has('pages.lang', Config::get('app.locale'), false)){
+            if(Lang::has('pages.lang', $browserLang, false)){
 
-                $localizeUrl = $domain."/".Config::get('app.locale').$urlWithoutDomain;
+                $localizeUrl = $domain."/".$browserLang.$urlWithoutDomain;
             }
             else{
                 $domain."/en".$urlWithoutDomain;
