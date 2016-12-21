@@ -50,7 +50,7 @@ return[
 
     //email_click_to_login
     'welcome_to_eventorganizer' => 'Bienvenue chez EventOrganizer',
-    'connect_yourseld' => 'Connectez vous !',
+    'connect_yourself' => 'Connectez vous !',
 
     //503
     'be_right_back' => 'Be right back',

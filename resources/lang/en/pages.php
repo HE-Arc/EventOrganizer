@@ -49,7 +49,7 @@ return[
 
     //emeail_click_to_login
     'welcome_to_eventorganizer' => 'Welcome to EventOrganizer',
-    'connect_yourseld' => 'Connect',
+    'connect_yourself' => 'Connect',
 
     //503
     'be_right_back' => 'Bientôt de retour',

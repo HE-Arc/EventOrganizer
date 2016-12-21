@@ -28,7 +28,7 @@ class AuthController extends Controller
      */
     public function login()
     {
-        
+
         return view('auth.login');
     }
     /**
@@ -39,6 +39,7 @@ class AuthController extends Controller
     public function postLogin()
     {
         $this->auth->invite();
+        // FIXME: You should redirect after a POST, always. -- Yoan
         // Or redirect to a page with this message.
         return view('auth.go_check_email');
     }
@@ -51,8 +52,11 @@ class AuthController extends Controller
     public function authenticate(Request $request)
     {
         $token = LoginToken::where("token",$request->token)->first();
-        $this->auth->login($token);
-        return redirect('/event');
+        if ($token) {
+            $this->auth->login($token);
+            return redirect('/event');
+        }
+        return redirect('/')->withErrors('Token is dead');
     }
     /**
      * Log out the user.

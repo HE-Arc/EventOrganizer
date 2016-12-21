@@ -1,3 +1,5 @@
+window.template = require('../../views/eventitems/item_template.hbs');
+
 $(function () {
     $.ajaxSetup({
         headers: {
@@ -10,6 +12,4 @@ $(function () {
             draggable: true // Choose whether you can drag to open on touch screens
         }
     );
-
-    window.template = require('../../views/eventitems/item_template.hbs');
 })
